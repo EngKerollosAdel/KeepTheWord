@@ -16,54 +16,217 @@
 <!-- استدعاء مكتبة الأيقونات FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
  
+<style>
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        /* تنسيق الناف بار */
+        #navbar {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            cursor: pointer;
+        }
+
+        /* قائمة الروابط للشاشات الكبيرة */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        /* زر القائمة (الموبايل) */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* تنسيق القائمة المنسدلة (Dropdown) */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            list-style: none;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* --- استعلامات الميديا للموبايل --- */
+        @media screen and (max-width: 1024px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%; /* مخفي جهة اليمين */
+                flex-direction: column;
+                background-color: #fff;
+                width: 70%;
+                height: calc(100vh - 70px);
+                padding: 20px;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0; /* يظهر عند الضغط */
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+                padding: 10px 0;
+            }
+
+            /* في الموبايل القائمة المنسدلة تظهر بشكل بسيط */
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                padding-right: 20px;
+                display: none; /* تفتح عند الضغط في الموبايل */
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
 
 <nav id="navbar">
-  <div class="nav-logo">
-    <img src="images/Logo.jpg" alt="خدمة حفظ الكلمة" />
-  </div>
+    <div class="nav-logo">
+        <img src="images/Logo.jpg" alt="خدمة حفظ الكلمة" />
+    </div>
 
-  <ul class="nav-links">
-    <li><a href="#intro"><i class="fas fa-home"></i> الرئيسية</a></li>
-    <li><a href="#daily-reading"><i class="fas fa-book-open"></i> القراءات</a></li>
-    <li><a href="#about"><i class="fas fa-info-circle"></i> من نحن</a></li>
-    <li><a href="#offer"><i class="fas fa-gift"></i> ماذا نقدم؟</a></li>
-    <li><a href="#state"><i class="fas fa-chart-line"></i> ثمار الخدمة</a></li>
-    <li><a href="#activity"><i class="fas fa-calendar-check"></i> أنشطتنا</a></li>
-    <li><a href="#join-to-us"><i class="fas fa-user-plus"></i> انضم لنا</a></li>
-    <li><a href="#media"><i class="fas fa-play-circle"></i> ميديا</a></li>
-    <li><a href="#apps"><i class="fas fa-mobile-alt"></i> ديجيتال</a></li>
-    <li><a href="#donate"><i class="fas fa-heart"></i> ساهم</a></li>
-    <li><a href="#contact"><i class="fas fa-envelope"></i> تواصل</a></li>
+    <!-- زر الموبايل -->
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
 
-    <!-- القائمة المنسدلة بناءً على السوشيال ميديا الخاصة بنا -->
-    <li class="dropdown">
-      <a href="#">عيلة حفظ الكلمة ديجيتال <i class="fas fa-chevron-down"></i></a>
-      <ul class="dropdown-menu">
-        <li>
-          <a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank">
-            <i class="fab fa-facebook"></i> فيسبوك - مجتمعنا
-          </a>
+    <ul class="nav-links">
+        <li><a href="#intro"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="#daily-reading"><i class="fas fa-book-open"></i> القراءات</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> من نحن</a></li>
+        <li><a href="#offer"><i class="fas fa-gift"></i> ماذا نقدم؟</a></li>
+        <li><a href="#state"><i class="fas fa-chart-line"></i> ثمار الخدمة</a></li>
+        <li><a href="#activity"><i class="fas fa-calendar-check"></i> أنشطتنا</a></li>
+        <li><a href="#join-to-us"><i class="fas fa-user-plus"></i> انضم لنا</a></li>
+        <li><a href="#media"><i class="fas fa-play-circle"></i> ميديا</a></li>
+        <li><a href="#apps"><i class="fas fa-mobile-alt"></i> ديجيتال</a></li>
+        <li><a href="#donate"><i class="fas fa-heart"></i> ساهم</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> تواصل</a></li>
+
+        <!-- القائمة المنسدلة -->
+        <li class="dropdown" id="social-dropdown">
+            <a href="javascript:void(0)">عيلة حفظ الكلمة ديجيتال <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank"><i class="fab fa-facebook"></i> فيسبوك - مجتمعنا</a></li>
+                <li><a href="https://www.youtube.com/@keeptheword4882" target="_blank"><i class="fab fa-youtube"></i> يوتيوب - آيات ملحنة</a></li>
+                <li><a href="https://www.instagram.com/keeptheword" target="_blank"><i class="fab fa-instagram"></i> إنستجرام - تأملات</a></li>
+                <li><a href="https://tiktok.com/@keep_the_word" target="_blank"><i class="fab fa-tiktok"></i> تيك توك - زتونة الكلمة</a></li>
+            </ul>
         </li>
-        <li>
-          <a href="https://www.youtube.com/@keeptheword4882" target="_blank">
-            <i class="fab fa-youtube"></i> يوتيوب - آيات ملحنة
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/keeptheword" target="_blank">
-            <i class="fab fa-instagram"></i> إنستجرام - تأملات
-          </a>
-        </li>
-        <li>
-          <a href="https://tiktok.com/@keep_the_word" target="_blank">
-            <i class="fab fa-tiktok"></i> تيك توك - زتونة الكلمة
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+    </ul>
 </nav>
 
+<script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const dropdown = document.getElementById('social-dropdown');
+
+    // فتح وإغلاق قائمة الموبايل
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileMenu.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // التعامل مع القائمة المنسدلة في الموبايل عند الضغط
+    dropdown.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024) {
+            dropdown.classList.toggle('open');
+        }
+    });
+
+    // إغلاق القائمة عند الضغط على أي رابط (لتحسين تجربة المستخدم في الموبايل)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!link.parentElement.classList.contains('dropdown')) {
+                navLinks.classList.remove('active');
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    });
+</script>
 
   <!-- HERO -->
   <section class="hero" id="intro" style="padding-top: 0 !important;">
