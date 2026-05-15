@@ -13,164 +13,25 @@
 </head>
 
 <body>
-<!-- استدعاء مكتبة الأيقونات FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
- 
-<style>
-        /* إعدادات عامة */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <!-- استدعاء مكتبة الأيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        body {
-            background-color: #f4f4f4;
-        }
 
-        /* تنسيق الناف بار */
-        #navbar {
-            background-color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  </head>
 
-        .nav-logo img {
-            height: 60px;
-            cursor: pointer;
-        }
+  <body>
 
-        /* قائمة الروابط للشاشات الكبيرة */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
+    <nav id="navbar">
+      <div class="nav-logo">
+        <img src="images/logo.jpg" alt="خدمة حفظ الكلمة" />
+      </div>
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-links a:hover {
-            color: #007bff;
-        }
-
-        /* زر القائمة (الموبايل) */
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* تنسيق القائمة المنسدلة (Dropdown) */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            list-style: none;
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            padding: 10px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .dropdown-menu li a {
-            padding: 10px 20px;
-            display: block;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* --- استعلامات الميديا للموبايل --- */
-        @media screen and (max-width: 1024px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%; /* مخفي جهة اليمين */
-                flex-direction: column;
-                background-color: #fff;
-                width: 70%;
-                height: calc(100vh - 70px);
-                padding: 20px;
-                transition: 0.4s ease;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                overflow-y: auto;
-            }
-
-            .nav-links.active {
-                right: 0; /* يظهر عند الضغط */
-            }
-
-            .nav-links li {
-                width: 100%;
-                border-bottom: 1px solid #eee;
-                padding: 10px 0;
-            }
-
-            /* في الموبايل القائمة المنسدلة تظهر بشكل بسيط */
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                box-shadow: none;
-                padding-right: 20px;
-                display: none; /* تفتح عند الضغط في الموبايل */
-            }
-
-            .dropdown.open .dropdown-menu {
-                display: block;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<nav id="navbar">
-    <div class="nav-logo">
-        <img src="images/Logo.jpg" alt="خدمة حفظ الكلمة" />
-    </div>
-
-    <!-- زر الموبايل -->
-    <div class="menu-toggle" id="mobile-menu">
+      <!-- زر الموبايل -->
+      <div class="menu-toggle" id="mobile-menu">
         <i class="fas fa-bars"></i>
-    </div>
+      </div>
 
-    <ul class="nav-links">
+      <ul class="nav-links">
         <li><a href="#intro"><i class="fas fa-home"></i> الرئيسية</a></li>
         <li><a href="#daily-reading"><i class="fas fa-book-open"></i> القراءات</a></li>
         <li><a href="#about"><i class="fas fa-info-circle"></i> من نحن</a></li>
@@ -185,938 +46,1175 @@
 
         <!-- القائمة المنسدلة -->
         <li class="dropdown" id="social-dropdown">
-            <a href="javascript:void(0)">عيلة حفظ الكلمة ديجيتال <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank"><i class="fab fa-facebook"></i> فيسبوك - مجتمعنا</a></li>
-                <li><a href="https://www.youtube.com/@keeptheword4882" target="_blank"><i class="fab fa-youtube"></i> يوتيوب - آيات ملحنة</a></li>
-                <li><a href="https://www.instagram.com/keeptheword" target="_blank"><i class="fab fa-instagram"></i> إنستجرام - تأملات</a></li>
-                <li><a href="https://tiktok.com/@keep_the_word" target="_blank"><i class="fab fa-tiktok"></i> تيك توك - زتونة الكلمة</a></li>
-            </ul>
+          <a href="javascript:void(0)">عيلة حفظ الكلمة ديجيتال <i class="fas fa-chevron-down"
+              style="font-size: 10px;"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank"><i class="fab fa-facebook"></i>
+                فيسبوك - مجتمعنا</a></li>
+            <li><a href="https://www.youtube.com/@keeptheword4882" target="_blank"><i class="fab fa-youtube"></i> يوتيوب
+                - آيات ملحنة</a></li>
+            <li><a href="https://www.instagram.com/keeptheword" target="_blank"><i class="fab fa-instagram"></i>
+                إنستجرام - تأملات</a></li>
+            <li><a href="https://tiktok.com/@keep_the_word" target="_blank"><i class="fab fa-tiktok"></i> تيك توك -
+                زتونة الكلمة</a></li>
+            <li><a href="https://soundcloud.com/keep-theword" target="_blank"><i class="fab fa-soundcloud"></i> سوند
+                كلود - Sound Cloud</a></li>
+          </ul>
         </li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-<script>
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    const dropdown = document.getElementById('social-dropdown');
+    <script>
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      const dropdown = document.getElementById('social-dropdown');
 
-    // فتح وإغلاق قائمة الموبايل
-    mobileMenu.addEventListener('click', () => {
+      // فتح وإغلاق قائمة الموبايل
+      mobileMenu.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         const icon = mobileMenu.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
-    });
+      });
 
-    // التعامل مع القائمة المنسدلة في الموبايل عند الضغط
-    dropdown.addEventListener('click', (e) => {
+      // التعامل مع القائمة المنسدلة في الموبايل عند الضغط
+      dropdown.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
-            dropdown.classList.toggle('open');
+          dropdown.classList.toggle('open');
         }
-    });
+      });
 
-    // إغلاق القائمة عند الضغط على أي رابط (لتحسين تجربة المستخدم في الموبايل)
-    document.querySelectorAll('.nav-links a').forEach(link => {
+      // إغلاق القائمة عند الضغط على أي رابط (لتحسين تجربة المستخدم في الموبايل)
+      document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (!link.parentElement.classList.contains('dropdown')) {
-                navLinks.classList.remove('active');
-                mobileMenu.querySelector('i').classList.add('fa-bars');
-                mobileMenu.querySelector('i').classList.remove('fa-times');
-            }
+          if (!link.parentElement.classList.contains('dropdown')) {
+            navLinks.classList.remove('active');
+            mobileMenu.querySelector('i').classList.add('fa-bars');
+            mobileMenu.querySelector('i').classList.remove('fa-times');
+          }
         });
-    });
-</script>
-
-  <!-- HERO -->
-  <section class="hero" id="intro" style="padding-top: 0 !important;">
-    <div class="slides" id="slider">
-
-      <div class="slide slide-1 active">
-        <div class="particles" id="p0"></div>
-
-        <div class="random-images-container">
-          <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
-          <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
-          <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
-          <img src="images/Train/4.jpg" class="random-img img-pos-4" alt="حفظ الكلمة">
-          <img src="images/Train/5.jpg" class="random-img img-pos-5" alt="تعليم مسيحي">
-          <img src="images/Train/6.jpg" class="random-img img-pos-6" alt="دراسة الإنجيل">
-        </div>
-
-        <div class="slide-content">
-          <h2>مارثون "كلمتك سراج لجسدي" .. رحلة في قلب الكتاب المقدس</h2>
-          <p>انضم إلينا في رحلة روحية وتنافسية فريدة لحفظ أسفار العهدين القديم والجديد بالكامل. لنغرس كلمة الله في
-            قلوبنا لتكون لنا حياة، ونختبر معاً بركة "حفظ الكلمة" التي تُغير الأذهان.</p>
-          <!-- <a href="https://bse.to/Bible" target="_blank">تطبيق خدمة حفظ الكلمة كل يوم</a> -->
-        </div>
-      </div>
-
-      <div class="slide slide-2">
+      });
+    </script>
 
 
-        <div class="particles"></div>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        <div class="wide-overlap-section">
-          <img src="images/Train/11.jpg" class="mega-img pos-alpha" alt="دراسة الإنجيل - حفظ الكلمة">
-          <img src="images/Train/12.jpg" class="mega-img pos-beta" alt="خدمة لغة الإشارة">
-          <img src="images/Train/13.jpg" class="mega-img pos-gamma" alt="مارثون الأطفال">
-        </div>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-        <div class="slide-content">
-          <h2>خدمة لغة الإشارة في "حفظ الكلمة" 🤟</h2>
-          <p>الوصف:
-            انطلق معنا في رحلة روحية لحفظ الكتاب المقدس بعهديه، بمشاركة متميزة من إخوتنا في "خدمة لغة الإشارة" لضمان
-            وصول كلمة الله للجميع. تحدَّ نفسك في مؤسسة حفظ الكلمة، واجعل الإنجيل حيّاً في قلبك وحياتك من خلال أقوى
-            ماريثون حفظ في مصر.</p>
-          <!-- <a href="https://bse.to/Radio" target="_blank">راديو خدمة حفظ الكلمة</a> -->
-        </div>
-      </div>
+    <!-- ================= HERO MOBILE ================= -->
+    <section class="hero-mobile" id="intro-mobile" dir="rtl">
 
-      <div class="slide slide-3">
-        <div class="particles"></div>
+      <div class="mobile-slides">
 
-        <!-- حاوية الصور العشوائية المتداخلة -->
-        <div class="random-images-container">
-          <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
-          <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
-          <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
-          <img src="images/Train/4.jpg" class="random-img img-pos-4" alt="حفظ الكلمة">
-          <img src="images/Train/5.jpg" class="random-img img-pos-5" alt="تعليم مسيحي">
-          <img src="images/Train/6.jpg" class="random-img img-pos-6" alt="دراسة الإنجيل">
-        </div>
+        <!-- Slide 1 -->
+        <div class="mobile-slide active">
+          <div class="mobile-slide-bg" style="background-image:url('images/Train/1.png')"></div>
 
-        <div class="slide-content">
-          <div class="text-card">
-            <h2>خدمة تدريب الخدام (التعليم)</h2>
-            <p>نؤهلك لتكون خادماً مؤثراً قادراً على تحفيظ الكلمة بأسلوب شيق ومنهجي يراعي الفروق الفردية. تدريب عملي
-              وروحي يهدف لبناء جيل يحمل الإنجيل في قلبه وعقله.</p>
+          <div class="overlay"></div>
+
+          <div class="mobile-slide-content">
+
+            <span class="tag">📖 ماراثون الحفظ</span>
+
+            <h2>ماراثون "كلمتك سراج لجسدي"</h2>
+
+            <p>
+              رحلة روحية وتنافسية لحفظ أسفار العهدين بأسلوب ممتع ومشجع.
+            </p>
+
+            <a class="btn-mobile" href="#activity">
+              اعرف أكثر
+            </a>
+
           </div>
         </div>
-      </div>
 
-      <div class="slide slide-4">
-        <div class="particles"></div>
+        <!-- Slide 2 -->
+        <div class="mobile-slide">
+          <div class="mobile-slide-bg" style="background-image:url('images/Train/11.jpeg')"></div>
 
-        <style>
-          /* حاوية الصور الكبيرة والموزعة */
-          .partnership-visuals {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
-          }
+          <div class="overlay"></div>
 
-          /* تنسيق الصور: بدون إطار، شفافية 70%، توزيع واسع */
-          .mega-overlap {
-            position: absolute;
-            width: 450px;
-            /* حجم كبير جداً */
-            height: 600px;
-            object-fit: cover;
-            border-radius: 50px;
-            /* حواف دائرية انسيابية */
-            border: none;
-            /* بدون أي إطارات */
-            opacity: 0.7;
-            /* شفافية 70% كما طلبت */
-            filter: brightness(0.8) contrast(1.1);
-            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: drift 15s linear infinite alternate;
-          }
+          <div class="mobile-slide-content">
 
-          /* توزيع الصور في الأركان مع تداخل هندسي */
-          .pos-left {
-            left: -5%;
-            top: 15%;
-            transform: rotate(-10deg);
-          }
+            <span class="tag">🤟 خدمة متخصصة</span>
 
-          .pos-center {
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(1.2);
-            opacity: 0.5;
-            /* الصورة المركزية أكثر شفافية لتبرز النص */
-            z-index: 0;
-          }
+            <h2>خدمة لغة الإشارة</h2>
 
-          .pos-right {
-            right: -5%;
-            bottom: 10%;
-            transform: rotate(10deg);
-          }
+            <p>
+              برامج حفظ مخصصة للصم وضعاف السمع لتصل كلمة الله للجميع.
+            </p>
 
-          /* أنيميشن الانجراف البطيء جداً (Drift) */
-          @keyframes drift {
-            from {
-              transform: translate(0, 0) rotate(-10deg);
-            }
+            <a class="btn-mobile" href="#activity">
+              تعرف عليها
+            </a>
 
-            to {
-              transform: translate(30px, 30px) rotate(-5deg);
-            }
-          }
-
-          /* تفاعل التداخل عند مرور الماوس */
-          .slide-4:hover .pos-left {
-            transform: translate(50px, 0) rotate(-5deg);
-            opacity: 0.9;
-          }
-
-          .slide-4:hover .pos-right {
-            transform: translate(-50px, 0) rotate(5deg);
-            opacity: 0.9;
-          }
-
-          /* تنسيق كارت النص الزجاجي */
-          .glass-card {
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 50px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-          }
-
-          /* نبض أزرار التواصل */
-          .fast-pulse {
-            animation: pulse-green 2s infinite;
-          }
-
-          @keyframes pulse-green {
-            0% {
-              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-
-            70% {
-              box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-              box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-          }
-        </style>
-
-        <!-- حاوية الصور الكبيرة المتداخلة بأسلوب هندسي واسع -->
-        <div class="partnership-visuals">
-          <img src="images/Train/333.jpg" class="mega-overlap pos-left" alt="يوم روحي بالكنيسة">
-          <img src="images/Train/222.jpg" class="mega-overlap pos-center" alt="خدمة المجتمع">
-          <img src="images/Train/444.jpg" class="mega-overlap pos-right" alt="تكريم حفظة الكلمة">
+          </div>
         </div>
 
-        <div class="slide-content">
-          <div class="glass-card animate-pop">
-            <h2>معاً لنمجد الكلمة.. شراكات "حفظ الكلمة"</h2>
-            <p>تفتح مؤسسة "حفظ الكلمة" أبوابها للتعاون مع كافة الكنائس والهيئات لتنظيم أيام روحية ومسابقات متخصصة. نضع
-              كل خبراتنا لتشجيع شعب الكنيسة على التعمق في وصايا الرب.</p>
+        <!-- Slide 3 -->
+        <div class="mobile-slide">
+          <div class="mobile-slide-bg" style="background-image:url('images/Train/2.jpg')"></div>
 
-            <div class="join-buttons">
-              <a href="https://wa.me/201288584000?text=سلام%20ونعمة%20لمؤسسة%20حفظ%20الكلمة.."
-                class="btn-join btn-whatsapp fast-pulse" target="_blank">
-                <span>تواصل للشراكة (واتساب)</span>
-              </a>
-              <a href="https://m.me/KeepTheWordOfficial" class="btn-join btn-facebook" target="_blank">
-                <span>فيسبوك ماسنجر</span>
-              </a>
+          <div class="overlay"></div>
+
+          <div class="mobile-slide-content">
+
+            <span class="tag">🎓 تدريب وخدمة</span>
+
+            <h2>تدريب الخدام</h2>
+
+            <p>
+              إعداد خدام قادرين على تعليم وحفظ كلمة الله بطريقة حديثة ومؤثرة.
+            </p>
+
+            <a class="btn-mobile" href="#activity">
+              تدرب معنا
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="mobile-slide">
+          <div class="mobile-slide-bg" style="background-image:url('images/Train/333.jpg')"></div>
+
+          <div class="overlay"></div>
+
+          <div class="mobile-slide-content">
+
+            <span class="tag">🤝 شراكات وخدمة</span>
+
+            <h2>شراكات "حفظ الكلمة"</h2>
+
+            <p>
+              نتعاون مع الكنائس والخدمات لنشر كلمة الله بأساليب مبتكرة.
+            </p>
+
+            <a class="btn-mobile" href="#join-to-us">
+              انضم للشراكة
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="mobile-slide">
+          <div class="mobile-slide-bg" style="background-image:url('images/Train/444.jpg')"></div>
+
+          <div class="overlay"></div>
+
+          <div class="mobile-slide-content">
+
+            <span class="tag">🚀 ابدأ الآن</span>
+
+            <h2>ابدأ رحلتك الروحية</h2>
+
+            <p>
+              اختر سفراً وابدأ رحلة الحفظ والتأمل مع فريق يشجعك خطوة بخطوة.
+            </p>
+
+            <a class="btn-mobile" href="#media">
+              شاهد الآن
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== BUTTON RIGHT ===== -->
+      <button class="mobile-slider-btn btn-right" onclick="changeMobileSlide(-1)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- ===== BUTTON LEFT ===== -->
+      <button class="mobile-slider-btn btn-left" onclick="changeMobileSlide(1)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- ===== DOTS ===== -->
+      <div class="mobile-slider-dots">
+
+        <span class="mobile-dot active" onclick="goMobileSlide(0)"></span>
+
+        <span class="mobile-dot" onclick="goMobileSlide(1)"></span>
+
+        <span class="mobile-dot" onclick="goMobileSlide(2)"></span>
+
+        <span class="mobile-dot" onclick="goMobileSlide(3)"></span>
+
+        <span class="mobile-dot" onclick="goMobileSlide(4)"></span>
+
+      </div>
+
+    </section>
+
+    <!-- ================= STYLE ================= -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .hero-mobile {
+        position: relative;
+        width: 100%;
+        height: 72vh;
+        overflow: hidden;
+        direction: rtl;
+        font-family: 'Cairo', sans-serif;
+        border-radius: 0 0 30px 30px;
+      }
+
+      .mobile-slides {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .mobile-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.08);
+        transition: 1s ease;
+      }
+
+      .mobile-slide.active {
+        opacity: 1;
+        z-index: 2;
+        transform: scale(1);
+      }
+
+      .mobile-slide-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        animation: zoomBg 12s linear infinite;
+      }
+
+      @keyframes zoomBg {
+        from {
+          transform: scale(1);
+        }
+
+        to {
+          transform: scale(1.12);
+        }
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top,
+            rgba(0, 0, 0, .92),
+            rgba(0, 0, 0, .45),
+            rgba(0, 0, 0, .15));
+      }
+
+      .mobile-slide-content {
+        position: absolute;
+        bottom: 95px;
+        right: 20px;
+        left: 20px;
+        z-index: 5;
+        color: #fff;
+        animation: fadeUp 1s ease;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(35px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, .15);
+        border: 1px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(10px);
+        border-radius: 50px;
+        margin-bottom: 14px;
+        font-size: 12px;
+      }
+
+      .mobile-slide-content h2 {
+        font-size: 28px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        font-weight: 800;
+      }
+
+      .mobile-slide-content p {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 22px;
+        color: rgba(255, 255, 255, .92);
+      }
+
+      .btn-mobile {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 14px;
+        border-radius: 50px;
+        background: #fff;
+        color: #111;
+        text-decoration: none;
+        font-weight: 700;
+        transition: .3s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+      }
+
+      .btn-mobile:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ===== SLIDER BUTTONS ===== */
+
+      .mobile-slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 50;
+        width: 46px;
+        height: 46px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, .35);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        cursor: pointer;
+        transition: .3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+
+      /* الزر اليمين */
+      .btn-right {
+        right: 14px;
+      }
+
+      /* الزر الشمال */
+      .btn-left {
+        left: 14px;
+      }
+
+      .mobile-slider-btn:hover {
+        background: #ffffff;
+        color: #111;
+        transform: translateY(-50%) scale(1.08);
+      }
+
+      /* ===== DOTS ===== */
+
+      .mobile-slider-dots {
+        position: absolute;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 20;
+
+        padding: 10px 18px;
+        border-radius: 50px;
+
+        background: rgba(0, 0, 0, .35);
+        backdrop-filter: blur(10px);
+      }
+
+      .mobile-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .45);
+        cursor: pointer;
+        transition: .4s ease;
+      }
+
+      .mobile-dot:hover {
+        transform: scale(1.2);
+      }
+
+      .mobile-dot.active {
+        width: 32px;
+        border-radius: 50px;
+        background: #ffffff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, .8);
+      }
+
+      /* ===== RESPONSIVE ===== */
+
+      @media(max-width:480px) {
+
+        .hero-mobile {
+          height: 68vh;
+        }
+
+        .mobile-slide-content {
+          bottom: 95px;
+        }
+
+        .mobile-slide-content h2 {
+          font-size: 24px;
+        }
+
+        .mobile-slide-content p {
+          font-size: 13px;
+          line-height: 1.8;
+        }
+
+        .mobile-slider-btn {
+          width: 42px;
+          height: 42px;
+        }
+
+      }
+    </style>
+
+    <!-- ================= SCRIPT ================= -->
+    <script>
+
+      const mobileSlides = document.querySelectorAll(".mobile-slide");
+      const mobileDots = document.querySelectorAll(".mobile-dot");
+
+      let currentMobileSlide = 0;
+
+      function showMobileSlide(index) {
+
+        mobileSlides.forEach(slide => {
+          slide.classList.remove("active");
+        });
+
+        mobileDots.forEach(dot => {
+          dot.classList.remove("active");
+        });
+
+        mobileSlides[index].classList.add("active");
+        mobileDots[index].classList.add("active");
+      }
+
+      function changeMobileSlide(step) {
+
+        currentMobileSlide += step;
+
+        if (currentMobileSlide >= mobileSlides.length) {
+          currentMobileSlide = 0;
+        }
+
+        if (currentMobileSlide < 0) {
+          currentMobileSlide = mobileSlides.length - 1;
+        }
+
+        showMobileSlide(currentMobileSlide);
+      }
+
+      function goMobileSlide(index) {
+
+        currentMobileSlide = index;
+
+        showMobileSlide(currentMobileSlide);
+      }
+
+      /* ===== AUTO PLAY ===== */
+
+      setInterval(() => {
+
+        changeMobileSlide(1);
+
+      }, 5000);
+
+    </script>
+
+
+    <!-- HERO -->
+    <section class="hero l-section" id="intro" style="padding-top: 0 !important;">
+      <div class="slides" id="slider">
+
+        <div class="slider-decor" aria-hidden="true"></div>
+
+        <div class="slide slide-1 active">
+          <div class="particles" id="p0"></div>
+          <div class="random-images-container">
+            <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
+            <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
+            <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
+            <img src="images/Train/4.jpg" class="random-img img-pos-4" alt="حفظ الكلمة">
+            <img src="images/Train/5.jpg" class="random-img img-pos-5" alt="تعليم مسيحي">
+            <img src="images/Train/6.jpg" class="random-img img-pos-6" alt="دراسة الإنجيل">
+          </div>
+          <div class="slide-content">
+            <h2>مارثون "كلمتك سراج لجسدي" .. رحلة في قلب الكتاب المقدس</h2>
+            <p>انضم إلينا في رحلة روحية وتنافسية فريدة لحفظ أسفار العهدين القديم والجديد بالكامل. لنغرس كلمة الله في
+              قلوبنا لتكون لنا حياة، ونختبر معاً بركة "حفظ الكلمة" التي تُغير الأذهان.</p>
+            <!-- <a href="https://bse.to/Bible" target="_blank">تطبيق خدمة حفظ الكلمة كل يوم</a> -->
+          </div>
+        </div>
+
+        <div class="slide slide-2">
+          <div class="particles"></div>
+          <div class="wide-overlap-section">
+            <img src="images/Train/11.jpeg" class="mega-img pos-alpha" alt="دراسة الإنجيل - حفظ الكلمة">
+            <img src="images/Train/12.jpg" class="mega-img pos-beta" alt="خدمة لغة الإشارة">
+            <img src="images/Train/13.jpg" class="mega-img pos-gamma" alt="مارثون الأطفال">
+          </div>
+          <div class="slide-content">
+            <h2>خدمة لغة الإشارة في "حفظ الكلمة" 🤟</h2>
+            <p>الوصف:
+              انطلق معنا في رحلة روحية لحفظ الكتاب المقدس بعهديه، بمشاركة متميزة من إخوتنا في "خدمة لغة الإشارة" لضمان
+              وصول كلمة الله للجميع. تحدَّ نفسك في مؤسسة حفظ الكلمة، واجعل الإنجيل حيّاً في قلبك وحياتك من خلال أقوى
+              ماريثون حفظ في مصر.</p>
+            <!-- <a href="https://bse.to/Radio" target="_blank">راديو خدمة حفظ الكلمة</a> -->
+          </div>
+        </div>
+
+        <div class="slide slide-3">
+          <div class="particles"></div>
+          <!-- حاوية الصور العشوائية المتداخلة -->
+          <div class="random-images-container">
+            <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
+            <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
+            <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
+            <img src="images/Train/4.jpg" class="random-img img-pos-4" alt="حفظ الكلمة">
+            <img src="images/Train/5.jpg" class="random-img img-pos-5" alt="تعليم مسيحي">
+            <img src="images/Train/6.jpg" class="random-img img-pos-6" alt="دراسة الإنجيل">
+          </div>
+          <div class="slide-content">
+            <div class="text-card">
+              <h2>خدمة تدريب الخدام (التعليم)</h2>
+              <p>نؤهلك لتكون خادماً مؤثراً قادراً على تحفيظ الكلمة بأسلوب شيق ومنهجي يراعي الفروق الفردية. تدريب عملي
+                وروحي يهدف لبناء جيل يحمل الإنجيل في قلبه وعقله.</p>
             </div>
           </div>
         </div>
-      </div>
+
+        <div class="slide slide-4">
+          <div class="particles"></div>
 
 
-      <style>
-        /* حاوية الصور المبعثرة */
-        .scattered-montage {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          pointer-events: none;
-          z-index: 1;
-        }
 
-        /* تنسيق الصور: بدون إطار، شفافية 70%، حجم ضخم */
-        .scatter-img {
-          position: absolute;
-          width: 500px;
-          height: auto;
-          border-radius: 40px;
-          opacity: 0.7;
-          /* بوضوح 70% كما طلبت */
-          filter: brightness(0.9) saturate(1.2);
-          transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-          animation: floating-3d 20s infinite ease-in-out;
-        }
+          <!-- حاوية الصور الكبيرة المتداخلة بأسلوب هندسي واسع -->
+          <div class="partnership-visuals">
+            <img src="images/Train/333.jpg" class="mega-overlap pos-left" alt="يوم روحي بالكنيسة">
+            <img src="images/Train/222.jpg" class="mega-overlap pos-center" alt="خدمة المجتمع">
+            <img src="images/Train/444.jpg" class="mega-overlap pos-right" alt="تكريم حفظة الكلمة">
+          </div>
 
-        /* توزيع مبعثر جداً ومتداخل */
-        .pos-top-left {
-          top: -10%;
-          left: -5%;
-          transform: rotate(-15deg);
-          z-index: 2;
-        }
+          <div class="slide-content">
+            <div class="glass-card animate-pop">
+              <h2>معاً لنمجد الكلمة.. شراكات "حفظ الكلمة"</h2>
+              <p>تفتح مؤسسة "حفظ الكلمة" أبوابها للتعاون مع كافة الكنائس والهيئات لتنظيم أيام روحية ومسابقات متخصصة. نضع
+                كل خبراتنا لتشجيع شعب الكنيسة على التعمق في وصايا الرب.</p>
 
-        .pos-bottom-right {
-          bottom: -10%;
-          right: -5%;
-          transform: rotate(15deg);
-          z-index: 3;
-        }
-
-        .pos-center-mid {
-          top: 30%;
-          left: 15%;
-          width: 400px;
-          opacity: 0.4;
-          z-index: 0;
-          filter: blur(5px);
-        }
-
-        /* أنيميشن عالي التميز (3D Floating) */
-        @keyframes floating-3d {
-          0% {
-            transform: translate(0, 0) rotate(-15deg) skew(0deg, 0deg);
-          }
-
-          33% {
-            transform: translate(40px, -60px) rotate(-10deg) skew(2deg, 2deg);
-          }
-
-          66% {
-            transform: translate(-30px, 40px) rotate(-18deg) skew(-2deg, -1deg);
-          }
-
-          100% {
-            transform: translate(0, 0) rotate(-15deg) skew(0deg, 0deg);
-          }
-        }
-
-        /* كارت النص الزجاجي (Neon Glass) */
-        .neon-glass-card {
-          position: relative;
-          z-index: 10;
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(25px);
-          padding: 60px;
-          border-radius: 50px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
-          text-align: right;
-          max-width: 800px;
-          animation: entrance 1.5s ease-out;
-        }
-
-        /* تأثير التفاعل "الروش" عند الماوس */
-        .slide-5:hover .scatter-img {
-          opacity: 1;
-          transform: scale(1.05) rotate(0deg);
-        }
-
-        .btn-modern {
-          display: inline-block;
-          padding: 15px 35px;
-          border-radius: 30px;
-          background: linear-gradient(45deg, #ff007b, #00d4ff);
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-          margin: 10px;
-          transition: 0.3s;
-        }
-
-        .btn-modern.secondary {
-          background: transparent;
-          border: 2px solid #00d4ff;
-        }
-      </style>
-
-
-      <div class="slide slide-5">
-        <div class="particles"></div>
-
-        <!-- حاوية الصور المبعثرة (Scattered Images) بدون إطار وشفافية 70% -->
-        <div class="scattered-montage">
-          <img src="images/Train/333.jpg" class="scatter-img pos-top-left" alt="بداية حفظ سفر">
-          <img src="images/Train/333.jpg" class="scatter-img pos-bottom-right" alt="تأمل في وعود الرب">
-          <img src="images/Train/444.jpg" class="scatter-img pos-center-mid" alt="إتمام حفظ الكلمة">
-        </div>
-
-        <div class="slide-content">
-          <div class="neon-glass-card">
-            <h2>عايز أبدأ أحفظ بس خايف.. دليلك للخطوة الأولى 🚀</h2>
-            <p>اختار سفر من العهد القديم أو الجديد، واعمل عنه "ملخص سريع" (Highlights) يشجع الناس إنها تحفظه، وركز على
-              الوعود والتعزيات اللي فيه.</p>
-
-            <!-- دعوة للتفاعل بناءً على فيديوهاتنا الأخيرة -->
-            <div class="action-zone">
-              <p class="highlight-text">"لأنك قد عظمت كلمتك على كل اسمك"</p>
-              <div class="buttons-row">
-                <a href="https://www.youtube.com/@keeptheword4882" class="btn-modern" target="_blank">شاهد أساليب
-                  الحفظ</a>
-                <a href="https://www.instagram.com/keeptheword" class="btn-modern secondary" target="_blank">التحق
-                  بمارثون الحفظ</a>
+              <div class="join-buttons">
+                <a href="https://wa.me/201288584000?text=سلام%20ونعمة%20لمؤسسة%20حفظ%20الكلمة.."
+                  class="btn-join btn-whatsapp fast-pulse" target="_blank">
+                  <span>تواصل للشراكة (واتساب)</span>
+                </a>
+                <a href="https://m.me/KeepTheWordOfficial" class="btn-join btn-facebook" target="_blank">
+                  <span>فيسبوك ماسنجر</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="slide slide-5">
+          <div class="particles"></div>
+
+          <!-- حاوية الصور المبعثرة (Scattered Images) بدون إطار وشفافية 70% -->
+          <div class="scattered-montage">
+            <img src="images/Train/333.jpg" class="scatter-img pos-top-left" alt="بداية حفظ سفر">
+            <img src="images/Train/333.jpg" class="scatter-img pos-bottom-right" alt="تأمل في وعود الرب">
+            <img src="images/Train/444.jpg" class="scatter-img pos-center-mid" alt="إتمام حفظ الكلمة">
+          </div>
+
+          <div class="slide-content">
+            <div class="neon-glass-card">
+              <h2>عايز أبدأ أحفظ بس خايف.. دليلك للخطوة الأولى 🚀</h2>
+              <p>اختار سفر من العهد القديم أو الجديد، واعمل عنه "ملخص سريع" (Highlights) يشجع الناس إنها تحفظه، وركز على
+                الوعود والتعزيات اللي فيه.</p>
+
+              <!-- دعوة للتفاعل بناءً على فيديوهاتنا الأخيرة -->
+              <div class="action-zone">
+                <p class="highlight-text">"لأنك قد عظمت كلمتك على كل اسمك"</p>
+                <div class="buttons-row">
+                  <a href="https://www.youtube.com/@keeptheword4882" class="btn-modern" target="_blank">شاهد أساليب
+                    الحفظ</a>
+                  <a href="https://www.instagram.com/keeptheword" class="btn-modern secondary" target="_blank">التحق
+                    بمارثون الحفظ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <button class="slider-btn slider-rev" onclick="changeSlide(-1)"><i class="fas fa-chevron-right"></i></button>
+      <button class="slider-btn slider-next" onclick="changeSlide(1)"><i class="fas fa-chevron-left"></i></button>
+      <div class="slider-dots" id="dots">
+        <span class="dot active" onclick="goSlide(0)"></span>
+        <span class="dot" onclick="goSlide(1)"></span>
+        <span class="dot" onclick="goSlide(2)"></span>
+        <span class="dot" onclick="goSlide(3)"></span>
+        <span class="dot" onclick="goSlide(4)"></span>
+      </div>
+    </section>
+
+    <section id="daily-reading" id="daily-reading">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2 style="color: #8b0000;">مجموعات القراءة اليومية 📖</h2>
+          <div class="section-divider" style="background-color: #8b0000;"></div>
+          <p>«لأَنَّكَ قَدْ عَظَّمْتَ كَلِمَتَكَ عَلَى كُلِّ اسْمِكَ».. ابدأ يومك وانهيه معانا بكلمة رب المجد.</p>
+        </div>
+
+        <div class="reading-card reveal">
+          <span class="reading-icon">⛅</span>
+          <div class="reading-time">مجموعات صباحية ومسائية</div>
+          <h3>عيلتنا بتكبر بوجودكم معانا</h3>
+          <p>ساعة يومية بنجتمع فيها بروح واحدة علشان "نفهم ونهلج ونطبق" الوصية في حياتنا. مجموعاتنا متاحة الآن،
+            ومستنيينكم
+            تنضموا لينا.</p>
+
+          <div class="join-buttons">
+            <!-- رابط واتساب مع رسالة تلقائية -->
+            <a href="https://wa.me/201288584000?text=سلام%20ونعمة%20يا%20عيلة%20حفظ%20الكلمة..%20حابب%20جداً%20أنضم%20لمجموعات%20القراءة%20اليومية%20علشان%20نعيش%20الكلمة%20سوا"
+              class="btn-join btn-whatsapp" target="_blank">
+              <span>واتساب</span>
+            </a>
+
+            <!-- رابط فيسبوك ماسنجر مع رسالة تلقائية -->
+            <a href="https://m.me/KeepTheWordOfficial?text=سلام%20ونعمة..%20أرغب%20في%20الانضمام%20لمجموعات%20القراءة%20الصباحية%20والمسائية%20لخدمة%20حفظ%20الكلمة"
+              class="btn-join btn-facebook" target="_blank">
+              <span>فيسبوك ماسنجر</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-intro reveal">
+          <h3 style="color: #8b0000;">من نحن</h3>
+          <p>
+            نحن عيلة <strong>"حفظ الكلمة"</strong>، انطلقنا في عام 2019 برؤية واضحة تهدف إلى جعل كلمة الله حية ومعاشة في
+            قلب كل إنسان.
+            نحن خدام نسعى لأن نرى الكلمة تتجسد في النفوس "صغاراً وكباراً"، لنحياها بالقول والفعل لملء قامة المسيح.
+          </p>
+        </div>
+
+        <div class="about-cards stagger">
+          <!-- البداية والرؤية -->
+          <div class="about-card">
+            <div class="img-wrap">
+              <img src="images/about/1.jpg" alt="رؤيتنا" />
+            </div>
+            <div class="about-card-body">
+              <h4>رؤيتنا</h4>
+              <p>
+                بدأت رحلتنا في 2019 بهدف واحد: "حفظ الكتاب المقدس بلهج وفهم وتطبيق".
+                نؤمن أن حفظ الوصية هو الطريق لتغيير المجتمع من خلال بناء علاقة قوية وحقيقية بالله.
+              </p>
+            </div>
+          </div>
+
+          <!-- الرسالة والهدف -->
+          <div class="about-card">
+            <div class="img-wrap">
+              <img src="images/about/2.jpg" alt="رسالتنا" />
+            </div>
+            <div class="about-card-body">
+              <h4>رسالتنا</h4>
+              <p>
+                توريث وتعليم وتسليم كلمة الله محفوظة من جيل إلى جيل.
+                ننشئ أجيالاً تحيا حياة المسيح، قادرة على الصمود أمام تحديات الحياة بكلمة الله الحية في قلوبهم.
+              </p>
+            </div>
+          </div>
+
+          <!-- المنهجية والاستراتيجية -->
+          <div class="about-card">
+            <div class="img-wrap">
+              <img src="images/about/3.png" alt="منهجنا" />
+            </div>
+            <div class="about-card-body">
+              <h4>منهجنا</h4>
+              <p>
+                نعتمد على الإبداع والتميز؛ نستخدم وسائل إيضاح صوتية، حركية، ومجسمات وألعاب لتسهيل الحفظ.
+                هدفنا حفظ الوصية بفهم عميق، دون التطرق لأي فكر عقيدي أو تفسيرات كنسية.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER -->
+    <section id="offer">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2 style="color: #8b0000;">ماذا نقدم في "حفظ الكلمة"؟</h2>
+          <div class="section-divider" style="background-color: #8b0000;"></div>
+          <p>نحرص أن تعيش الكلمة متجسدة في كل نفس من خلال استراتيجيات علمية وإبداعية متطورة.</p>
+        </div>
+        <div class="offer-grid stagger">
+
+          <!-- التميز والإبداع -->
+          <div class="offer-item">
+            <div class="offer-icon">🎨</div>
+            <div class="offer-text">
+              <h4>وسائل إيضاح مبتكرة</h4>
+              <p>نقدم الكلمة من خلال مجسمات، ألعاب، ووسائل إيضاح صوتية وحركية تجعل عملية الحفظ ممتعة وسهلة لجميع
+                الأعمار.
+              </p>
+            </div>
+          </div>
+
+          <!-- المنهجية العلمية -->
+          <div class="offer-item">
+            <div class="offer-icon">🧠</div>
+            <div class="offer-text">
+              <h4>منهجية علمية متخصصة</h4>
+              <p>نستخدم مادة علمية تُدرس قدرات الإنسان وإمكانياته الأبداعية العقليه والفكرية لتحسين عملية الحفظ والتذكر
+                الدائم
+                للوصية.
+              </p>
+            </div>
+          </div>
+
+          <!-- التحفيظ باللحن -->
+          <div class="offer-item">
+            <div class="offer-icon">🎵</div>
+            <div class="offer-text">
+              <h4>التحفيظ بالألحان</h4>
+              <p>نطوع الفن لخدمة الكلمة عبر مقاطع ملحنة ومنشورة إلكترونياً لتسهيل حفظ الآيات والأسفار.</p>
+            </div>
+          </div>
+
+          <!-- الشمولية لكل الفئات -->
+          <div class="offer-item">
+            <div class="offer-icon">🤟</div>
+            <div class="offer-text">
+              <h4>خدمات لكل فئات المجتمع</h4>
+              <p>نصل بكلمة الله للصم وضعاف السمع بلغة الإشارة، وكبار السن، والمتزوجين، بجانب جميع المراحل الدراسية.</p>
+            </div>
+          </div>
+
+          <!-- المهرجانات والكرنفالات -->
+          <div class="offer-item">
+            <div class="offer-icon">🏆</div>
+            <div class="offer-text">
+              <h4>مواسم التكريم</h4>
+              <p>نقيم كرنفالات صيفية ومؤتمرات لتكريم وتشجيع أولادنا في المحافظات، للحفاظ على شغفهم تجاه كلمة الله.</p>
+            </div>
+          </div>
+
+          <!-- إعداد الخدام -->
+          <div class="offer-item">
+            <div class="offer-icon">🎓</div>
+            <div class="offer-text">
+              <h4>تدريب الخدام التنفيذيين</h4>
+              <p>نعمل على توريث الكلمة عبر إعداد أجيال من الخدام القادرين على تسليم الإيمان والكلمة بأساليب تعليمية
+                حديثة.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-section" id="state">
+      <div class="stats-title reveal">ثمار الخدمة خلال 6 سنوات</div>
+
+      <div class="stats-grid stagger">
+
+        <div class="stat-item">
+          <span class="stat-num" id="count1">0</span>
+          <div class="stat-label">عدد خدام حفظ الكلمة</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-num" id="count2">0</span>
+          <div class="stat-label">عدد ماراثونات الكتاب المقدس</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-num" id="count3">0</span>
+          <div class="stat-label">عدد مواسم حفظ الكلمة</div>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-num" id="count4">0</span>
+          <div class="stat-label">الشراكات مع الكنائس والهيئات</div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="activity">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2 style="color: #8b0000;">أنشطة خدمة حفظ الكلمة</h2>
+          <div class="section-divider" style="background-color: #8b0000;"></div>
+        </div>
+
+        <div class="activities-grid stagger">
+
+          <!-- كورس الأمثال -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/1.png" alt="أمثال رب المجد" />
+            </div>
+            <div class="activity-card-body">
+              <h4> لِمَاذَا تُكَلِّمُهُمْ بِأَمْثَالٍ؟📖</h4>
+              <p>دراسة عميقة حول أسباب حديث السيد المسيح بالأمثال وشرح وافٍ لمعانيها الروحية.</p>
+            </div>
+          </div>
+
+          <!-- ماراثون الكتاب المقدس -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/2.png" alt="ماراثون القراءة" />
+            </div>
+            <div class="activity-card-body">
+              <h4>ماراثون الكتاب المقدس 🏁</h4>
+              <p>حدث سنوي لقراءة العهد الجديد أو أجزاء من العهد القديم خلال 3 أيام في أجواء روحانية.</p>
+            </div>
+          </div>
+
+          <!-- مجموعات القراءة -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/3.png" alt="مجموعات القراءة" />
+            </div>
+            <div class="activity-card-body">
+              <h4>مجموعات القراءة اليومية 👥</h4>
+              <p>ساعة يومية (صباحية ومسائية) على تطبيق ماسنجر لنبدأ وننهي يومنا بالتمتع بكلمة رب المجد.</p>
+            </div>
+          </div>
+
+          <!-- تدريب الخدام -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/4.png" alt="تدريب الخدام" />
+            </div>
+            <div class="activity-card-body">
+              <h4>تدريب الخدام 🎓</h4>
+              <p>اعداد و تدريب الخدام لتسليم تكنيك حفظ الكلمة و برنامج خاص لقلب الخادم.</p>
+            </div>
+          </div>
+
+          <!-- خدمة لغة الإشارة -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/5.png" alt="لغة الإشارة" />
+            </div>
+            <div class="activity-card-body">
+              <h4>لغة الإشارة 🤟</h4>
+              <p>حفظ الكتاب المقدس لفئة الصم و ضعاف السمع و اصحاب الهمم بوسائل تناسبهم.</p>
+            </div>
+          </div>
+
+          <!-- التحفيظ باللحن -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/6.png" alt="التحفيظ باللحن" />
+            </div>
+            <div class="activity-card-body">
+              <h4>كورسات و مجموعات دراسة الكتاب المقدس 🎵</h4>
+              <p>إعداد معلمين بروح الإنجيل: يدرسون الكلمة بعمق، يحيونها بقداسة، ويسلمونها بأمانة؛ لنبني جيلاً لا يعرف
+                الكتاب فحسب، بل يتغير به ويغير العالم.</p>
+            </div>
+          </div>
+
+          <!-- مجموعات التلمذة -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/7.png" alt="مجموعات التلمذة" />
+            </div>
+            <div class="activity-card-body">
+              <h4>مجموعات التلمذة ❤️</h4>
+              <p>مجموعات تلمذة (قادة, متزوجين, سيدات, شباب) تهدف للنمو في النعمة، والعمق في الحق، لا تكتفي بالمعرفة، بل
+                تهدف إلى التغيير: ننمو معاً لنعكس صورة المسيح في كل فكرٍ وخطوة والتميز في التبعية.</p>
+            </div>
+          </div>
+
+          <!-- الشراكات الكنسية -->
+          <div class="activity-card">
+            <div class="img-wrap">
+              <img src="images/Acitity/8.jpg" alt="الشراكات الكنسية" />
+            </div>
+            <div class="activity-card-body">
+              <h4>شراكات الكنائس و الهيئات و الخدمات ⛪</h4>
+              <p>التعاون مع الكنائس والهيئات لتحفيظ الكلمة بوسائل وطرق مبتكرة ومتعددة لحفظ الكتاب المقدس .</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KEEP THE WORD - JOIN US SECTION -->
+    <div id="join-to-us" class="bibleworld reveal"
+      style="text-align: center; background-color: #8b0000; padding: 40px 20px; border-radius: 15px; color: white; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+      <h2 style="font-size: 2.2em; margin-bottom: 15px;">انضم لخدمة حفظ الكلمة</h2>
+
+      <p style="font-size: 1.2em; line-height: 1.8; max-width: 800px; margin: 0 auto 30px auto;">
+        خدمة "حفظ الكلمة" هدفها توصيل كلمة الله لكل قلب، بكل وسيلة ممكنة.
+        كن شريكاً في الخدمة.. وساهم في صنع تأثير أبدي ❤️
+      </p>
+
+      <div class="main-actions" style="margin-bottom: 30px;">
+        <!-- زر الواتساب بالرسالة الموحدة -->
+        <a href="https://wa.me/201288584000?text=سلام%20ونعمة..%20أنا%20أرغب%20في%20معرفة%20تفاصيل%20الانضمام%20إلى%20خدمة%20حفظ%20الكلمة%20وعايز%20أعرف%20تفاصيل%20أكتر%20عن%20الخدمة%20وكيفية%20المشاركة."
+          target="_blank"
+          style="display: inline-block; padding: 15px 35px; background-color: #25D366; color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+          تواصل عبر الواتساب
+        </a>
+
+        <!-- زر الفيسبوك بالرسالة الموحدة (Messenger) -->
+        <a href="https://m.me/KeepTheWordOfficial?text=سلام%20ونعمة..%20أنا%20أرغب%20في%20معرفة%20تفاصيل%20الانضمام%20إلى%20خدمة%20حفظ%20الكلمة%20وعايز%20أعرف%20تفاصيل%20أكتر%20عن%20الخدمة%20وكيفية%20المشاركة."
+          target="_blank"
+          style="display: inline-block; padding: 15px 35px; background-color: #1877F2; color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+          تواصل عبر الفيسبوك
+        </a>
+      </div>
+
 
     </div>
 
-    <button class="slider-btn slider-rev" onclick="changeSlide(1)">&#8249;</button>
-    <button class="slider-btn slider-next" onclick="changeSlide(-1)">&#8250;</button>
-    <div class="slider-dots" id="dots">
-      <span class="dot active" onclick="goSlide(0)"></span>
-      <span class="dot" onclick="goSlide(1)"></span>
-      <span class="dot" onclick="goSlide(2)"></span>
-      <span class="dot" onclick="goSlide(3)"></span>
-      <span class="dot" onclick="goSlide(4)"></span>
-    </div>
-  </section>
+    <!-- MEDIA -->
+    <section id="media">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>ميديا</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="media-grid stagger">
 
-  <section id="daily-reading" id="daily-reading">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2 style="color: #8b0000;">مجموعات القراءة اليومية 📖</h2>
-        <div class="section-divider" style="background-color: #8b0000;"></div>
-        <p>«لأَنَّكَ قَدْ عَظَّمْتَ كَلِمَتَكَ عَلَى كُلِّ اسْمِكَ».. ابدأ يومك وانهيه معانا بكلمة رب المجد.</p>
-      </div>
-
-      <div class="reading-card reveal">
-        <span class="reading-icon">⛅</span>
-        <div class="reading-time">مجموعات صباحية ومسائية</div>
-        <h3>عيلتنا بتكبر بوجودكم معانا</h3>
-        <p>ساعة يومية بنجتمع فيها بروح واحدة علشان "نفهم ونهلج ونطبق" الوصية في حياتنا. مجموعاتنا متاحة الآن، ومستنيينكم
-          تنضموا لينا.</p>
-
-        <div class="join-buttons">
-          <!-- رابط واتساب مع رسالة تلقائية -->
-          <a href="https://wa.me/201288584000?text=سلام%20ونعمة%20يا%20عيلة%20حفظ%20الكلمة..%20حابب%20جداً%20أنضم%20لمجموعات%20القراءة%20اليومية%20علشان%20نعيش%20الكلمة%20سوا"
-            class="btn-join btn-whatsapp" target="_blank">
-            <span>واتساب</span>
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg9Qocm5cov6-FNMylo4k6A6"
+            target=" _blank">
+            <div class="img-wrap"><img src="images/Media/1.png" /></div>
+            <div class="media-card-title">مقاطع كتابية ملحنة - انجليزى</div>
           </a>
 
-          <!-- رابط فيسبوك ماسنجر مع رسالة تلقائية -->
-          <a href="https://m.me/KeepTheWordOfficial?text=سلام%20ونعمة..%20أرغب%20في%20الانضمام%20لمجموعات%20القراءة%20الصباحية%20والمسائية%20لخدمة%20حفظ%20الكلمة"
-            class="btn-join btn-facebook" target="_blank">
-            <span>فيسبوك ماسنجر</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <div class="about-intro reveal">
-        <h3 style="color: #8b0000;">من نحن</h3>
-        <p>
-          نحن عيلة <strong>"حفظ الكلمة"</strong>، انطلقنا في عام 2019 برؤية واضحة تهدف إلى جعل كلمة الله حية ومعاشة في
-          قلب كل إنسان.
-          نحن خدام نسعى لأن نرى الكلمة تتجسد في النفوس "صغاراً وكباراً"، لنحياها بالقول والفعل لملء قامة المسيح.
-        </p>
-      </div>
-
-      <div class="about-cards stagger">
-        <!-- البداية والرؤية -->
-        <div class="about-card">
-          <div class="img-wrap">
-            <img src="images/about/1.jpg" alt="رؤيتنا" />
-          </div>
-          <div class="about-card-body">
-            <h4>رؤيتنا</h4>
-            <p>
-              بدأت رحلتنا في 2019 بهدف واحد: "حفظ الكتاب المقدس بلهج وفهم وتطبيق".
-              نؤمن أن حفظ الوصية هو الطريق لتغيير المجتمع من خلال بناء علاقة قوية وحقيقية بالله.
-            </p>
-          </div>
-        </div>
-
-        <!-- الرسالة والهدف -->
-        <div class="about-card">
-          <div class="img-wrap">
-            <img src="images/about/2.jpg" alt="رسالتنا" />
-          </div>
-          <div class="about-card-body">
-            <h4>رسالتنا</h4>
-            <p>
-              توريث وتعليم وتسليم كلمة الله محفوظة من جيل إلى جيل.
-              ننشئ أجيالاً تحيا حياة المسيح، قادرة على الصمود أمام تحديات الحياة بكلمة الله الحية في قلوبهم.
-            </p>
-          </div>
-        </div>
-
-        <!-- المنهجية والاستراتيجية -->
-        <div class="about-card">
-          <div class="img-wrap">
-            <img src="images/about/3.jpg" alt="منهجنا" />
-          </div>
-          <div class="about-card-body">
-            <h4>منهجنا</h4>
-            <p>
-              نعتمد على الإبداع والتميز؛ نستخدم وسائل إيضاح صوتية، حركية، ومجسمات وألعاب لتسهيل الحفظ.
-              هدفنا حفظ الوصية بفهم عميق، دون التطرق لأي فكر عقيدي أو تفسيرات كنسية.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFFER -->
-  <section id="offer">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2 style="color: #8b0000;">ماذا نقدم في "حفظ الكلمة"؟</h2>
-        <div class="section-divider" style="background-color: #8b0000;"></div>
-        <p>نحرص أن تعيش الكلمة متجسدة في كل نفس من خلال استراتيجيات علمية وإبداعية متطورة.</p>
-      </div>
-      <div class="offer-grid stagger">
-
-        <!-- التميز والإبداع -->
-        <div class="offer-item">
-          <div class="offer-icon">🎨</div>
-          <div class="offer-text">
-            <h4>وسائل إيضاح مبتكرة</h4>
-            <p>نقدم الكلمة من خلال مجسمات، ألعاب، ووسائل إيضاح صوتية وحركية تجعل عملية الحفظ ممتعة وسهلة لجميع الأعمار.
-            </p>
-          </div>
-        </div>
-
-        <!-- المنهجية العلمية -->
-        <div class="offer-item">
-          <div class="offer-icon">🧠</div>
-          <div class="offer-text">
-            <h4>منهجية علمية متخصصة</h4>
-            <p>نستخدم مادة علمية تدرس قدرات الإنسان وإمكانيات الإبداع في عقله لتحسين عملية الحفظ والتذكر الدائم للوصية.
-            </p>
-          </div>
-        </div>
-
-        <!-- التحفيظ باللحن -->
-        <div class="offer-item">
-          <div class="offer-icon">🎵</div>
-          <div class="offer-text">
-            <h4>التحفيظ بالألحان</h4>
-            <p>نطوع الفن لخدمة الكلمة عبر مقاطع ملحنة ومنشورة إلكترونياً لتسهيل حفظ الآيات والأسفار في شكل ترانيم
-              وألحان.</p>
-          </div>
-        </div>
-
-        <!-- الشمولية لكل الفئات -->
-        <div class="offer-item">
-          <div class="offer-icon">🤟</div>
-          <div class="offer-text">
-            <h4>خدمات لكل فئات المجتمع</h4>
-            <p>نصل بكلمة الله للصم وضعاف السمع بلغة الإشارة، وكبار السن، والمتزوجين، بجانب جميع المراحل الدراسية.</p>
-          </div>
-        </div>
-
-        <!-- المهرجانات والكرنفالات -->
-        <div class="offer-item">
-          <div class="offer-icon">🏆</div>
-          <div class="offer-text">
-            <h4>مهرجانات التكريم</h4>
-            <p>نقيم كرنفالات صيفية ومؤتمرات لتكريم وتشجيع أولادنا في المحافظات، للحفاظ على شغفهم تجاه كلمة الله.</p>
-          </div>
-        </div>
-
-        <!-- إعداد الخدام -->
-        <div class="offer-item">
-          <div class="offer-icon">🎓</div>
-          <div class="offer-text">
-            <h4>تأهيل وتدريب الخدام</h4>
-            <p>نعمل على توريث الكلمة عبر إعداد أجيال من الخدام القادرين على تسليم الإيمان والكلمة بأساليب تعليمية حديثة.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <div class="stats-section" id="state">
-    <div class="stats-title reveal">ثمار الخدمة في في 6 سنوات</div>
-    <div class="stats-grid stagger">
-      <div class="stat-item"><span class="stat-num" id="count1">0</span>
-        <div class="stat-label">عدد خدام حفظ الكلمة</div>
-      </div>
-
-      <div class="stat-item"><span class="stat-num" id="count2">0</span>
-        <div class="stat-label">عدد مارثون الكتاب المقدس</div>
-      </div>
-
-      <div class="stat-item"><span class="stat-num" id="count3">0</span>
-        <div class="stat-label">عدد مواسم حفظ الكلمة</div>
-      </div>
-
-      <div class="stat-item"><span class="stat-num" id="count4">0</span>
-        <div class="stat-label">شركات مع الكنائس و الهيئات</div>
-      </div>
-    </div>
-  </div>
-
-  <section id="activity">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2 style="color: #8b0000;">أنشطة خدمة حفظ الكلمة</h2>
-        <div class="section-divider" style="background-color: #8b0000;"></div>
-      </div>
-
-      <div class="activities-grid stagger">
-
-        <!-- كورس الأمثال -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/1.jpg" alt="أمثال رب المجد" />
-          </div>
-          <div class="activity-card-body">
-            <h4>أمثال رب المجد 📖</h4>
-            <p>دراسة عميقة حول أسباب حديث السيد المسيح بالأمثال وشرح وافٍ لمعانيها الروحية.</p>
-          </div>
-        </div>
-
-        <!-- ماراثون الكتاب المقدس -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/2.png" alt="ماراثون القراءة" />
-          </div>
-          <div class="activity-card-body">
-            <h4>ماراثون الكتاب المقدس 🏁</h4>
-            <p>حدث سنوي لقراءة العهد الجديد أو أجزاء من العهد القديم خلال 3 أيام في أجواء روحانية.</p>
-          </div>
-        </div>
-
-        <!-- مجموعات القراءة -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/3.jpg" alt="مجموعات القراءة" />
-          </div>
-          <div class="activity-card-body">
-            <h4>مجموعات القراءة اليومية 👥</h4>
-            <p>ساعة يومية (صباحية ومسائية) لنبدأ وننهي يومنا بالتمتع بكلمة رب المجد.</p>
-          </div>
-        </div>
-
-        <!-- تدريب الخدام -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/4.jpg" alt="تدريب الخدام" />
-          </div>
-          <div class="activity-card-body">
-            <h4>تدريب الخدام 🎓</h4>
-            <p>إعداد وتأهيل الخدام لتحفيظ الأمثال من خلال مشاريع تخرج وأنشطة روحية.</p>
-          </div>
-        </div>
-
-        <!-- خدمة لغة الإشارة -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/5.jpg" alt="لغة الإشارة" />
-          </div>
-          <div class="activity-card-body">
-            <h4>لغة الإشارة 🤟</h4>
-            <p>تحفيظ الكلمة لإخوتنا من ضعاف السمع وأصحاب القدرات الخاصة بوسائل تناسبهم.</p>
-          </div>
-        </div>
-
-        <!-- التحفيظ باللحن -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/6.jpg" alt="التحفيظ باللحن" />
-          </div>
-          <div class="activity-card-body">
-            <h4>التحفيظ باللحن 🎵</h4>
-            <p>تقديم الكلمة عبر مقاطع ملحنة ومنشورة على منصاتنا الإلكترونية لتسهيل الحفظ.</p>
-          </div>
-        </div>
-
-        <!-- مجموعات التلمذة -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/7.jpg" alt="مجموعات التلمذة" />
-          </div>
-          <div class="activity-card-body">
-            <h4>مجموعات التلمذة ❤️</h4>
-            <p>أوساط روحية متخصصة (شباب، قادة، متزوجين) للتمتع بعشرة حية مع الله.</p>
-          </div>
-        </div>
-
-        <!-- الشراكات الكنسية -->
-        <div class="activity-card">
-          <div class="img-wrap">
-            <img src="images/Acitity/8.jpg" alt="الشراكات الكنسية" />
-          </div>
-          <div class="activity-card-body">
-            <h4>الشراكات الكنسية ⛪</h4>
-            <p>التعاون مع الكنائس والهيئات لتحفيظ الكلمة بوسائل وطرق مبتكرة ومتعددة.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- KEEP THE WORD - JOIN US SECTION -->
-  <div id="join-to-us" class="bibleworld reveal"
-    style="text-align: center; background-color: #8b0000; padding: 40px 20px; border-radius: 15px; color: white; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-
-    <h2 style="font-size: 2.2em; margin-bottom: 15px;">انضم لخدمة حفظ الكلمة</h2>
-
-    <p style="font-size: 1.2em; line-height: 1.8; max-width: 800px; margin: 0 auto 30px auto;">
-      خدمة "حفظ الكلمة" هدفها توصيل كلمة الله لكل قلب، بكل وسيلة ممكنة.
-      كن شريكاً في الخدمة.. وساهم في صنع تأثير أبدي ❤️
-    </p>
-
-    <div class="main-actions" style="margin-bottom: 30px;">
-      <!-- زر الواتساب بالرسالة الموحدة -->
-      <a href="https://wa.me/201288584000?text=سلام%20ونعمة..%20أنا%20أرغب%20في%20معرفة%20تفاصيل%20الانضمام%20إلى%20خدمة%20حفظ%20الكلمة%20وعايز%20أعرف%20تفاصيل%20أكتر%20عن%20الخدمة%20وكيفية%20المشاركة."
-        target="_blank"
-        style="display: inline-block; padding: 15px 35px; background-color: #25D366; color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-        تواصل عبر الواتساب
-      </a>
-
-      <!-- زر الفيسبوك بالرسالة الموحدة (Messenger) -->
-      <a href="https://m.me/KeepTheWordOfficial?text=سلام%20ونعمة..%20أنا%20أرغب%20في%20معرفة%20تفاصيل%20الانضمام%20إلى%20خدمة%20حفظ%20الكلمة%20وعايز%20أعرف%20تفاصيل%20أكتر%20عن%20الخدمة%20وكيفية%20المشاركة."
-        target="_blank"
-        style="display: inline-block; padding: 15px 35px; background-color: #1877F2; color: white; text-decoration: none; border-radius: 50px; margin: 10px; font-weight: bold; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-        تواصل عبر الفيسبوك
-      </a>
-    </div>
-
-
-  </div>
-
-  <!-- MEDIA -->
-  <section id="media">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>ميديا</h2>
-        <div class="section-divider"></div>
-      </div>
-      <div class="media-grid stagger">
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=MC5pcsP5JXs" target="_blank">
-          <div class="img-wrap"><img src="images/Media/1.png" alt="نظرة عامة" /></div>
-          <div class="media-card-title">نظرة عامة على خدمة حفظ الكلمة</div>
-        </a>
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=w18cY-ysNb8" target="_blank">
-          <div class="img-wrap"><img src="images/Media/2.png" alt="مزمور 91" /></div>
-          <div class="media-card-title">لوقا 2 : 10 - 14 ملحن</div>
-        </a>
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=j1WWagQUOQg" target="_blank">
-          <div class="img-wrap"><img src="images/Media/3.png" alt="أميرات وحكايات" /></div>
-          <div class="media-card-title">أميرات مثل الخروف الضال ملحن (لوقا١٥ : ٤-٧) خدمة حفظ الكلمة keep the word</div>
-        </a>
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=SqxHG400odY" target="_blank">
-          <div class="img-wrap"><img src="images/Media/4.png" alt="أبطال وحكايات" />
-          </div>
-          <div class="media-card-title">Holy prayer</div>
-        </a>
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=pTQKxTrR5kY" target="_blank">
-          <div class="img-wrap"><img src="images/Media/5.png" alt="حكاوي كينجو" /></div>
-          <div class="media-card-title">لوقت كهذا</div>
-        </a>
-
-        <a class="media-card" href="https://www.youtube.com/watch?v=shxcr8mBGy4" target="_blank">
-          <div class="img-wrap"><img src="images/Media/6.png" alt="العاصفة" /></div>
-          <div class="media-card-title">مثل الدرهم المفقود ملحن ( لوقا١٥ :٨-١٠) خدمة حفظ الكلمة keep the word</div>
-        </a>
-        <a class="media-card" href="https://web.facebook.com/share/v/18QQZtFTch/" target="_blank">
-          <div class="img-wrap"><img src="images/Media/7.png" alt="حكايات حكايات" /></div>
-          <div class="media-card-title">سلسلة كلمتك نور</div>
-        </a>
-
-        <a class="media-card" href="https://web.facebook.com/share/v/18Q5XaRBAr/" target="_blank">
-          <div class="img-wrap"><img src="images/Media/8.png" alt="فرحة لكل الناس" />
-          </div>
-          <div class="media-card-title">متي 28 : 1 - 7 ملحن</div>
-        </a>
-
-        <a class="media-card" href="https://web.facebook.com/share/v/1iav2ghrtB/" target="_blank">
-          <div class="img-wrap"><img src="images/Media/9.png" alt="وليس بأحد غيره الخلاص" /></div>
-          <div class="media-card-title">خدمات حفظ الكلمة</div>
-        </a>
-
-        <a class="media-card" href="https://web.facebook.com/share/v/1P1Cu3mHuV/" target="_blank">
-          <div class="img-wrap"><img src="images/Media/10.png" alt="قراءات جديدة" />
-          </div>
-          <div class="media-card-title">تلمذة السيدات و المتزوجين</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="apps">
-    <div class="container">
-      <div class="section-title" style="text-align: center; margin-bottom: 50px;">
-        <h2 style="color: #8b0000; font-size: 2.5rem;">عيلة حفظ الكلمة ديجيتال</h2>
-        <p style="color: #666; font-size: 1.2rem;">نستخدم كل وسيلة رقمية عشان كلمة ربنا توصل لقلبك وتغير حياتك.</p>
-      </div>
-
-      <div class="apps-grid">
-
-        <!-- كارت يوتيوب -->
-        <div class="app-card">
-          <img src="https://biblesocietyegypt.com/media/apps/2023-01-15_BibleAppLogo-Full-Icon_v2.1.png"
-            class="app-logo" alt="YouTube" />
-          <h4>آيات ملحنة للحفظ</h4>
-          <p>استمتع بحفظ الإنجيل من خلال ألحان مبهجة وفيديوهات تعليمية متميزة على قناتنا الرسمية. اللحن بيخلي الكلمة
-            تعيش جواك.</p>
-          <a href="https://www.youtube.com/@keeptheword4882" target="_blank" class="btn-unified btn-youtube">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-            شاهد على يوتيوب
-          </a>
-        </div>
-
-        <!-- كارت فيسبوك -->
-        <div class="app-card">
-          <img src="https://biblesocietyegypt.com/media/apps/RADIO-LOGO-1000X1000.jpg" class="app-logo"
-            alt="Facebook" />
-          <h4>مجتمعنا التفاعلي</h4>
-          <p>تابعنا على فيسبوك لتصلك آياتنا اليومية، وشارك في المسابقات الكتابية وطلبات الصلاة مع عيلة حفظ الكلمة في
-            مصر.</p>
-          <a href="https://www.facebook.com/KeepTheWordOfficial" target="_blank" class="btn-unified btn-facebook">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-            تابعنا على فيسبوك
-          </a>
-        </div>
-
-        <!-- كارت الانضمام -->
-        <div class="app-card">
-          <img src="https://biblesocietyegypt.com/media/apps/RADIO-LOGO-1000X1000.jpg" class="app-logo"
-            alt="Join Team" />
-          <h4>انضم بوزناتك</h4>
-          <p>لو عندك خبرة في المونتاج أو السوشيال ميديا أو البرمجيات، وزنتك تقدر تخدم الكلمة. تواصل معنا مباشرة عبر
-            المسنجر.</p>
-          <a href="https://m.me/KeepTheWordOfficial?text=سلام.. حابب أنضم لخدمة حفظ الكلمة وأشارك بوزناتي معاكم"
-            target="_blank" class="btn-unified btn-messenger">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.304 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.291 14.393l-3.072-3.274-5.99 3.274 6.586-7.002 3.149 3.274 5.913-3.274-6.586 7.002z" />
-            </svg>
-            تواصل معنا الآن
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DONATE -->
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <div class="donate-section reveal" id="donate">
-    <h2>ساهم معنا في نشر كلمة الحياة</h2>
-    <p>
-      خدمة "حفظ الكلمة" هدفها توصيل كلمة الله لكل قلب، بكل وسيلة ممكنة.
-      بمساهمتك، أنت بتشارك في نشر النور ووصول كلمة الرجاء لناس كتير محتاجة.
-    </p>
-
-    <div class="social-links">
-
-      <a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank" class="social-btn facebook">
-        <i class="fab fa-facebook-f"></i>
-        <span>Facebook</span>
-      </a>
-
-      <a href="https://www.youtube.com/@keeptheword4882" target="_blank" class="social-btn youtube">
-        <i class="fab fa-youtube"></i>
-        <span>YouTube</span>
-      </a>
-
-      <a href="https://www.instagram.com/keeptheword" target="_blank" class="social-btn instagram">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
-      </a>
-
-      <a href="https://tiktok.com/@keep_the_word" target="_blank" class="social-btn tiktok">
-        <i class="fab fa-tiktok"></i>
-        <span>TikTok</span>
-      </a>
-
-    </div>
-
-    <p class="support-text">
-      كن شريك في الخدمة… وساهم في صنع تأثير أبدي ❤️
-    </p>
-
-    <a href="https://wa.me/201288584000?text=سلام.. حابب أشارك في دعم خدمة حفظ الكلمة، ممكن أعرف إيه هي طرق التبرع المتاحة عشان نساهم في نشر كلمة ربنا؟" target="_blank" class="donate-btn">
-      <i class="fas fa-heart"></i> دعم الخدمة
-    </a>
-  </div>
- 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>تواصل معنا</h2>
-        <div class="section-divider"></div>
-      </div>
-      <div class="contact-grid stagger">
-        <div class="contact-card">
-          <span class="contact-icon">📍</span>
-          <h4>العنوان</h4>
-          <a href="https://www.google.com/maps/dir/30.1099559,31.30973/30.08724,31.35134/@30.0989245,31.2813231,13z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D"
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg_C48Q63kRxUzDewJpSfP29"
             target="_blank">
-            20 شارع أحمد تيسير ,<br>
-            أمام / بالقرب من كلية البنات <br>
-            مصر الجديدة - القاهرة - مصر
+            <div class="img-wrap"><img src="images/Media/2.png" /></div>
+            <div class="media-card-title">مقاطع كتابية ملحنة - عربى</div>
           </a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">📞</span>
-          <h4>التليفون</h4>
-          <a href="tel:00201288584000" dir="ltr"> (+2) 01288584000</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">✉️</span>
-          <h4>البريد الإلكتروني</h4>
-          <a href="mailto:keeptheword2020@gmail.com">keeptheword2020@gmail.com</a>
+
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg-iCMGimJOqTsW4ACVjs64C"
+            target="_blank">
+            <div class="img-wrap"><img src="images/Media/3.png" /></div>
+            <div class="media-card-title">لغة الاشارة</div>
+          </a>
+
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg9DYClZH4qMKrxju6yxVwb7"
+            target="_blank">
+            <div class="img-wrap"><img src="images/Media/4.png" /></div>
+            <div class="media-card-title">كلمتك نور</div>
+          </a>
+
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg9gCUtWSHhThlRu04ppk-id"
+            target="_blank">
+            <div class="img-wrap"><img src="images/Media/5.png" /></div>
+            <div class="media-card-title">حفظ الكلمة - صلوات</div>
+          </a>
+
+          <a class="media-card" href="https://www.youtube.com/playlist?list=PLTt5gt6N8Qg9tYjn-McNCfSGQMnkkJuJT"
+            target="_blank">
+            <div class="img-wrap"><img src="images/Media/6.png" /></div>
+            <div class="media-card-title">دراما</div>
+          </a>
+
         </div>
       </div>
+    </section>
+
+
+    <section id="apps">
+      <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+          <h2 style="color: #8b0000; font-size: 2.5rem;">عيلة حفظ الكلمة ديجيتال</h2>
+          <p style="color: #666; font-size: 1.2rem;">نستخدم كل وسيلة رقمية عشان كلمة ربنا توصل لقلبك وتغير حياتك.</p>
+        </div>
+
+        <div class="apps-grid">
+
+          <!-- كارت يوتيوب -->
+          <div class="app-card">
+            <img src="https://biblesocietyegypt.com/media/apps/2023-01-15_BibleAppLogo-Full-Icon_v2.1.png"
+              class="app-logo" alt="YouTube" />
+            <h4>آيات ملحنة للحفظ</h4>
+            <p>استمتع بحفظ الإنجيل من خلال ألحان مبهجة وفيديوهات تعليمية متميزة على قناتنا الرسمية. اللحن بيخلي الكلمة
+              تعيش جواك.</p>
+            <a href="https://www.youtube.com/@keeptheword4882" target="_blank" class="btn-unified btn-youtube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              شاهد على يوتيوب
+            </a>
+          </div>
+
+          <!-- كارت فيسبوك -->
+          <div class="app-card">
+            <img src="https://biblesocietyegypt.com/media/apps/RADIO-LOGO-1000X1000.jpg" class="app-logo"
+              alt="Facebook" />
+            <h4>مجتمعنا التفاعلي</h4>
+            <p>تابعنا على فيسبوك لتصلك آياتنا اليومية، وشارك في المسابقات الكتابية وطلبات الصلاة مع عيلة حفظ الكلمة في
+              مصر.</p>
+            <a href="https://www.facebook.com/KeepTheWordOfficial" target="_blank" class="btn-unified btn-facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              تابعنا على فيسبوك
+            </a>
+          </div>
+
+          <!-- كارت الانضمام -->
+          <div class="app-card">
+            <img src="https://biblesocietyegypt.com/media/apps/RADIO-LOGO-1000X1000.jpg" class="app-logo"
+              alt="Join Team" />
+            <h4>انضم بوزناتك</h4>
+            <p>لو عندك خبرة في المونتاج أو السوشيال ميديا أو البرمجيات، وزنتك تقدر تخدم الكلمة. تواصل معنا مباشرة عبر
+              المسنجر.</p>
+            <a href="https://m.me/KeepTheWordOfficial?text=سلام.. حابب أنضم لخدمة حفظ الكلمة وأشارك بوزناتي معاكم"
+              target="_blank" class="btn-unified btn-messenger">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.304 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.291 14.393l-3.072-3.274-5.99 3.274 6.586-7.002 3.149 3.274 5.913-3.274-6.586 7.002z" />
+              </svg>
+              تواصل معنا الآن
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATE -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <div class="donate-section reveal" id="donate">
+      <h2>ساهم معنا في نشر كلمة الحياة</h2>
+      <p>
+        خدمة "حفظ الكلمة" هدفها توصيل كلمة الله لكل قلب، بكل وسيلة ممكنة.
+        بمساهمتك، أنت بتشارك في نشر النور ووصول كلمة الرجاء لناس كتير محتاجة.
+      </p>
+
+      <div class="social-links">
+
+        <a href="https://web.facebook.com/KeepTheWordOfficial" target="_blank" class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+          <span>Facebook</span>
+        </a>
+
+        <a href="https://www.youtube.com/@keeptheword4882" target="_blank" class="social-btn youtube">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+
+        <a href="https://www.instagram.com/keeptheword" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+
+        <a href="https://tiktok.com/@keep_the_word" target="_blank" class="social-btn tiktok">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </a>
+
+        <a href="https://soundcloud.com/keep-theword" target="_blank" class="social-btn soundcloud">
+          <i class="fab fa-soundcloud"></i>
+          <span>SoundCloud</span>
+        </a>
+
+      </div>
+
+      <p class="support-text">
+        كن شريك في الخدمة… وساهم في صنع تأثير أبدي ❤️
+      </p>
+
+      <a href="https://wa.me/201288584000?text=سلام.. حابب أشارك في دعم خدمة حفظ الكلمة، ممكن أعرف إيه هي طرق التبرع المتاحة عشان نساهم في نشر كلمة ربنا؟"
+        target="_blank" class="donate-btn">
+        <i class="fas fa-heart"></i> دعم الخدمة
+      </a>
     </div>
-  </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>تواصل معنا</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="contact-grid stagger">
+          <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <h4>العنوان</h4>
+            <a href="https://www.google.com/maps/dir/30.1099559,31.30973/30.08724,31.35134/@30.0989245,31.2813231,13z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank">
+              20 شارع أحمد تيسير ,<br>
+              أمام / بالقرب من كلية البنات <br>
+              مصر الجديدة - القاهرة - مصر
+            </a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📞</span>
+            <h4>التليفون</h4>
+            <a href="tel:00201288584000" dir="ltr"> (+2) 01288584000</a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <h4>البريد الإلكتروني</h4>
+            <a href="mailto:keeptheword2020@gmail.com">keeptheword2020@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 حفظ الكلمة | Keep The Word Service</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 حفظ الكلمة | Keep The Word Service</p>
+    </footer>
 
-  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-  <script>
-    /* ── PARTICLES ── */
-    document.querySelectorAll('.particles').forEach(c => {
-      for (let i = 0; i < 14; i++) {
-        const s = document.createElement('span');
-        const sz = Math.random() * 16 + 4;
-        s.style.cssText = `
+    <script>
+      /* ── PARTICLES ── */
+      document.querySelectorAll('.particles').forEach(c => {
+        for (let i = 0; i < 14; i++) {
+          const s = document.createElement('span');
+          const sz = Math.random() * 16 + 4;
+          s.style.cssText = `
       position:absolute;
       width:${sz}px; height:${sz}px;
       border-radius:50%;
@@ -1125,80 +1223,181 @@
       left:${(Math.random() * 90).toFixed(1)}%;
       animation:particleFloat ${(Math.random() * 7 + 5).toFixed(1)}s ease-in-out ${(Math.random() * 5).toFixed(1)}s infinite;
     `;
-        c.appendChild(s);
-      }
-    });
-
-    /* ── SLIDER ── */
-    let current = 0;
-    const TOTAL = 5;
-    const slider = document.getElementById('slider');
-    const dots = document.querySelectorAll('.dot');
-    const slides = document.querySelectorAll('.slide');
-
-    function updateSlider() {
-      slider.style.transform = `translateX(${current * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      slides.forEach((s, i) => {
-        s.classList.remove('active');
-        if (i === current) s.classList.add('active');
+          c.appendChild(s);
+        }
       });
-    }
-    function changeSlide(dir) { current = (current + dir + TOTAL) % TOTAL; updateSlider(); }
-    function goSlide(n) { current = n; updateSlider(); }
 
-    setInterval(() => changeSlide(1), 5000);
+      /* ── SLIDER ── */
+      let current = 0;
+      const slider = document.getElementById('slider');
+      const slides = document.querySelectorAll('.slide');
+      const TOTAL = slides.length;
+      const dots = document.querySelectorAll('.dot');
 
-    /* swipe */
-    let tx = 0;
-    document.querySelector('.hero').addEventListener('touchstart', e => tx = e.changedTouches[0].screenX, { passive: true });
-    document.querySelector('.hero').addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].screenX - tx;
-      if (Math.abs(dx) > 40) changeSlide(dx > 0 ? -1 : 1);
-    }, { passive: true });
-
-    /* ── NAVBAR SCROLL ── */
-    const navbar = document.getElementById('navbar');
-    const scrollBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', scrollY > 60);
-      scrollBtn.classList.toggle('show', scrollY > 320);
-    });
-
-    /* ── SCROLL REVEAL ── */
-    const ro = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger,.section-title').forEach(el => ro.observe(el));
-
-    /* ── COUNTERS ── */
-    const targets = [25, 6, 5, 10];
-    const ids = ['count1', 'count2', 'count3', 'count4'];
-    let counted = false;
-
-    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-
-    function runCounters() {
-      if (counted) return;
-      counted = true;
-      const start = performance.now();
-      const dur = 2400;
-      function frame(now) {
-        const p = Math.min((now - start) / dur, 1);
-        ids.forEach((id, i) => {
-          document.getElementById(id).textContent =
-            Math.floor(easeOut(p) * targets[i]).toLocaleString('ar-EG');
-        });
-        if (p < 1) requestAnimationFrame(frame);
-        else ids.forEach((id, i) => document.getElementById(id).textContent = targets[i].toLocaleString('ar-EG'));
+      function updateSlider() {
+        // clamp current
+        current = ((Number(current) || 0) % TOTAL + TOTAL) % TOTAL;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
       }
-      requestAnimationFrame(frame);
-    }
 
-    new IntersectionObserver(e => { if (e[0].isIntersecting) runCounters(); }, { threshold: .25 })
-      .observe(document.querySelector('.stats-section'));
-  </script>
-</body>
+      // Robust navigation with logging for debugging
+      function changeSlide(dir) {
+        const prev = current;
+        const next = ((prev + dir) % TOTAL + TOTAL) % TOTAL;
+        if (next === prev) return;
+        const outgoing = slides[prev];
+        const incoming = slides[next];
+
+        // prepare smooth fade+scale parallax
+        outgoing.classList.add('exit-out');
+        incoming.classList.add('enter-in', 'active');
+
+        // trigger decorative bar
+        slider.classList.add('animate-decor');
+
+        // cleanup after animation
+        setTimeout(() => {
+          outgoing.classList.remove('active', 'exit-out');
+          incoming.classList.remove('enter-in');
+          current = next;
+          updateSlider();
+          // remove decor shortly after
+          setTimeout(() => slider.classList.remove('animate-decor'), 280);
+        }, 1000);
+
+        console.debug('changeSlide anim:', { dir, from: prev, to: next });
+      }
+
+      function goSlide(n) {
+        const prev = current;
+        current = Math.max(0, Math.min(TOTAL - 1, Number(n) || 0));
+        console.debug('goSlide:', { from: prev, to: current });
+        updateSlider();
+      }
+
+      // auto-advance (10s)
+      let sliderTimer = setInterval(() => changeSlide(1), 10000);
+
+      // reset timer on manual nav
+      function resetSliderTimer() {
+        clearInterval(sliderTimer);
+        sliderTimer = setInterval(() => changeSlide(1), 10000);
+      }
+
+      // wire dots to reset timer
+      document.querySelectorAll('.dot').forEach((el, i) => el.addEventListener('click', () => { goSlide(i); resetSliderTimer(); }));
+      // wire arrow buttons to reset timer
+      document.querySelectorAll('.slider-btn').forEach(btn => btn.addEventListener('click', () => resetSliderTimer()));
+
+      /* swipe */
+      let tx = 0;
+      document.querySelector('.hero').addEventListener('touchstart', e => tx = e.changedTouches[0].screenX, { passive: true });
+      document.querySelector('.hero').addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].screenX - tx;
+        if (Math.abs(dx) > 40) changeSlide(dx > 0 ? -1 : 1);
+      }, { passive: true });
+
+      /* ── MOBILE SLIDER ── */
+      let mobileCurrentSlide = 0;
+      const mobileSlider = document.getElementById('mobile-slider');
+      const mobileSlides = document.querySelectorAll('.mobile-slide');
+      const MOBILE_TOTAL = mobileSlides.length;
+      const mobileDots = document.querySelectorAll('.mobile-dot');
+
+      function updateMobileSlider() {
+        mobileCurrentSlide = ((Number(mobileCurrentSlide) || 0) % MOBILE_TOTAL + MOBILE_TOTAL) % MOBILE_TOTAL;
+        mobileDots.forEach((d, i) => d.classList.toggle('active', i === mobileCurrentSlide));
+        mobileSlides.forEach((s, i) => s.classList.toggle('active', i === mobileCurrentSlide));
+      }
+
+      function changeMobileSlide(dir) {
+        const prev = mobileCurrentSlide;
+        const next = ((prev + dir) % MOBILE_TOTAL + MOBILE_TOTAL) % MOBILE_TOTAL;
+        if (next === prev) return;
+        const outgoing = mobileSlides[prev];
+        const incoming = mobileSlides[next];
+
+        outgoing.classList.add('exit-out');
+        incoming.classList.add('enter-in', 'active');
+
+        setTimeout(() => {
+          outgoing.classList.remove('active', 'exit-out');
+          incoming.classList.remove('enter-in');
+          mobileCurrentSlide = next;
+          updateMobileSlider();
+        }, 1000);
+      }
+
+      function goMobileSlide(n) {
+        mobileCurrentSlide = Math.max(0, Math.min(MOBILE_TOTAL - 1, Number(n) || 0));
+        updateMobileSlider();
+      }
+
+      // auto-advance mobile (10s)
+      let mobileSliderTimer = setInterval(() => changeMobileSlide(1), 10000);
+
+      function resetMobileSliderTimer() {
+        clearInterval(mobileSliderTimer);
+        mobileSliderTimer = setInterval(() => changeMobileSlide(1), 10000);
+      }
+
+      document.querySelectorAll('.mobile-dot').forEach((el, i) => el.addEventListener('click', () => { goMobileSlide(i); resetMobileSliderTimer(); }));
+      document.querySelectorAll('.mobile-slider-btn').forEach(btn => btn.addEventListener('click', () => resetMobileSliderTimer()));
+
+      /* mobile swipe */
+      let mtx = 0;
+      const heroMobile = document.querySelector('.hero-mobile');
+      if (heroMobile) {
+        heroMobile.addEventListener('touchstart', e => mtx = e.changedTouches[0].screenX, { passive: true });
+        heroMobile.addEventListener('touchend', e => {
+          const mdx = e.changedTouches[0].screenX - mtx;
+          if (Math.abs(mdx) > 40) changeMobileSlide(mdx > 0 ? -1 : 1);
+        }, { passive: true });
+      }
+
+      /* ── NAVBAR SCROLL ── */
+      const navbar = document.getElementById('navbar');
+      const scrollBtn = document.getElementById('scrollTop');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', scrollY > 60);
+        scrollBtn.classList.toggle('show', scrollY > 320);
+      });
+
+      /* ── SCROLL REVEAL ── */
+      const ro = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger,.section-title').forEach(el => ro.observe(el));
+
+      /* ── COUNTERS ── */
+      const targets = [20, 6, 5, 10];
+      const ids = ['count1', 'count2', 'count3', 'count4'];
+      let counted = false;
+
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function runCounters() {
+        if (counted) return;
+        counted = true;
+        const start = performance.now();
+        const dur = 2400;
+        function frame(now) {
+          const p = Math.min((now - start) / dur, 1);
+          ids.forEach((id, i) => {
+            document.getElementById(id).textContent =
+              Math.floor(easeOut(p) * targets[i]).toLocaleString('ar-EG');
+          });
+          if (p < 1) requestAnimationFrame(frame);
+          else ids.forEach((id, i) => document.getElementById(id).textContent = targets[i].toLocaleString('ar-EG'));
+        }
+        requestAnimationFrame(frame);
+      }
+
+      new IntersectionObserver(e => { if (e[0].isIntersecting) runCounters(); }, { threshold: .25 })
+        .observe(document.querySelector('.stats-section'));
+    </script>
+  </body>
 
 </html>
