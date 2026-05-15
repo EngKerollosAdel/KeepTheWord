@@ -3283,7 +3283,10 @@
         display: none;
       }
 
-      .hero-mobile {
+      .mobile-only {
         display: block;
       }
     }
+
+
+    

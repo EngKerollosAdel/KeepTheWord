@@ -97,462 +97,19 @@
     </script>
 
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-    <!-- ================= HERO MOBILE ================= -->
-    <section class="hero-mobile" id="intro-mobile" dir="rtl">
-
-      <div class="mobile-slides">
-
-        <!-- Slide 1 -->
-        <div class="mobile-slide active">
-          <div class="mobile-slide-bg" style="background-image:url('images/Train/1.png')"></div>
-
-          <div class="overlay"></div>
-
-          <div class="mobile-slide-content">
-
-            <span class="tag">📖 ماراثون الحفظ</span>
-
-            <h2>ماراثون "كلمتك سراج لجسدي"</h2>
-
-            <p>
-              رحلة روحية وتنافسية لحفظ أسفار العهدين بأسلوب ممتع ومشجع.
-            </p>
-
-            <a class="btn-mobile" href="#activity">
-              اعرف أكثر
-            </a>
-
-          </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="mobile-slide">
-          <div class="mobile-slide-bg" style="background-image:url('images/Train/11.jpeg')"></div>
-
-          <div class="overlay"></div>
-
-          <div class="mobile-slide-content">
-
-            <span class="tag">🤟 خدمة متخصصة</span>
-
-            <h2>خدمة لغة الإشارة</h2>
-
-            <p>
-              برامج حفظ مخصصة للصم وضعاف السمع لتصل كلمة الله للجميع.
-            </p>
-
-            <a class="btn-mobile" href="#activity">
-              تعرف عليها
-            </a>
-
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="mobile-slide">
-          <div class="mobile-slide-bg" style="background-image:url('images/Train/2.jpg')"></div>
-
-          <div class="overlay"></div>
-
-          <div class="mobile-slide-content">
-
-            <span class="tag">🎓 تدريب وخدمة</span>
-
-            <h2>تدريب الخدام</h2>
-
-            <p>
-              إعداد خدام قادرين على تعليم وحفظ كلمة الله بطريقة حديثة ومؤثرة.
-            </p>
-
-            <a class="btn-mobile" href="#activity">
-              تدرب معنا
-            </a>
-
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="mobile-slide">
-          <div class="mobile-slide-bg" style="background-image:url('images/Train/333.jpg')"></div>
-
-          <div class="overlay"></div>
-
-          <div class="mobile-slide-content">
-
-            <span class="tag">🤝 شراكات وخدمة</span>
-
-            <h2>شراكات "حفظ الكلمة"</h2>
-
-            <p>
-              نتعاون مع الكنائس والخدمات لنشر كلمة الله بأساليب مبتكرة.
-            </p>
-
-            <a class="btn-mobile" href="#join-to-us">
-              انضم للشراكة
-            </a>
-
-          </div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="mobile-slide">
-          <div class="mobile-slide-bg" style="background-image:url('images/Train/444.jpg')"></div>
-
-          <div class="overlay"></div>
-
-          <div class="mobile-slide-content">
-
-            <span class="tag">🚀 ابدأ الآن</span>
-
-            <h2>ابدأ رحلتك الروحية</h2>
-
-            <p>
-              اختر سفراً وابدأ رحلة الحفظ والتأمل مع فريق يشجعك خطوة بخطوة.
-            </p>
-
-            <a class="btn-mobile" href="#media">
-              شاهد الآن
-            </a>
-
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ===== BUTTON RIGHT ===== -->
-      <button class="mobile-slider-btn btn-right" onclick="changeMobileSlide(-1)">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-
-      <!-- ===== BUTTON LEFT ===== -->
-      <button class="mobile-slider-btn btn-left" onclick="changeMobileSlide(1)">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-
-      <!-- ===== DOTS ===== -->
-      <div class="mobile-slider-dots">
-
-        <span class="mobile-dot active" onclick="goMobileSlide(0)"></span>
-
-        <span class="mobile-dot" onclick="goMobileSlide(1)"></span>
-
-        <span class="mobile-dot" onclick="goMobileSlide(2)"></span>
-
-        <span class="mobile-dot" onclick="goMobileSlide(3)"></span>
-
-        <span class="mobile-dot" onclick="goMobileSlide(4)"></span>
-
-      </div>
-
-    </section>
-
-    <!-- ================= STYLE ================= -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      .hero-mobile {
-        position: relative;
-        width: 100%;
-        height: 72vh;
-        overflow: hidden;
-        direction: rtl;
-        font-family: 'Cairo', sans-serif;
-        border-radius: 0 0 30px 30px;
-      }
-
-      .mobile-slides {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-
-      .mobile-slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transform: scale(1.08);
-        transition: 1s ease;
-      }
-
-      .mobile-slide.active {
-        opacity: 1;
-        z-index: 2;
-        transform: scale(1);
-      }
-
-      .mobile-slide-bg {
-        position: absolute;
-        inset: 0;
-        background-size: cover;
-        background-position: center;
-        animation: zoomBg 12s linear infinite;
-      }
-
-      @keyframes zoomBg {
-        from {
-          transform: scale(1);
-        }
-
-        to {
-          transform: scale(1.12);
-        }
-      }
-
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top,
-            rgba(0, 0, 0, .92),
-            rgba(0, 0, 0, .45),
-            rgba(0, 0, 0, .15));
-      }
-
-      .mobile-slide-content {
-        position: absolute;
-        bottom: 95px;
-        right: 20px;
-        left: 20px;
-        z-index: 5;
-        color: #fff;
-        animation: fadeUp 1s ease;
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(35px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 8px 16px;
-        background: rgba(255, 255, 255, .15);
-        border: 1px solid rgba(255, 255, 255, .2);
-        backdrop-filter: blur(10px);
-        border-radius: 50px;
-        margin-bottom: 14px;
-        font-size: 12px;
-      }
-
-      .mobile-slide-content h2 {
-        font-size: 28px;
-        line-height: 1.5;
-        margin-bottom: 14px;
-        font-weight: 800;
-      }
-
-      .mobile-slide-content p {
-        font-size: 14px;
-        line-height: 1.9;
-        margin-bottom: 22px;
-        color: rgba(255, 255, 255, .92);
-      }
-
-      .btn-mobile {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 14px;
-        border-radius: 50px;
-        background: #fff;
-        color: #111;
-        text-decoration: none;
-        font-weight: 700;
-        transition: .3s;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
-      }
-
-      .btn-mobile:hover {
-        transform: translateY(-3px);
-      }
-
-      /* ===== SLIDER BUTTONS ===== */
-
-      .mobile-slider-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 50;
-        width: 46px;
-        height: 46px;
-        border: none;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, .35);
-        backdrop-filter: blur(10px);
-        color: #fff;
-        cursor: pointer;
-        transition: .3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-      }
-
-      /* الزر اليمين */
-      .btn-right {
-        right: 14px;
-      }
-
-      /* الزر الشمال */
-      .btn-left {
-        left: 14px;
-      }
-
-      .mobile-slider-btn:hover {
-        background: #ffffff;
-        color: #111;
-        transform: translateY(-50%) scale(1.08);
-      }
-
-      /* ===== DOTS ===== */
-
-      .mobile-slider-dots {
-        position: absolute;
-        bottom: 28px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        z-index: 20;
-
-        padding: 10px 18px;
-        border-radius: 50px;
-
-        background: rgba(0, 0, 0, .35);
-        backdrop-filter: blur(10px);
-      }
-
-      .mobile-dot {
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, .45);
-        cursor: pointer;
-        transition: .4s ease;
-      }
-
-      .mobile-dot:hover {
-        transform: scale(1.2);
-      }
-
-      .mobile-dot.active {
-        width: 32px;
-        border-radius: 50px;
-        background: #ffffff;
-        box-shadow: 0 0 10px rgba(255, 255, 255, .8);
-      }
-
-      /* ===== RESPONSIVE ===== */
-
-      @media(max-width:480px) {
-
-        .hero-mobile {
-          height: 68vh;
-        }
-
-        .mobile-slide-content {
-          bottom: 95px;
-        }
-
-        .mobile-slide-content h2 {
-          font-size: 24px;
-        }
-
-        .mobile-slide-content p {
-          font-size: 13px;
-          line-height: 1.8;
-        }
-
-        .mobile-slider-btn {
-          width: 42px;
-          height: 42px;
-        }
-
-      }
-    </style>
-
-    <!-- ================= SCRIPT ================= -->
-    <script>
-
-      const mobileSlides = document.querySelectorAll(".mobile-slide");
-      const mobileDots = document.querySelectorAll(".mobile-dot");
-
-      let currentMobileSlide = 0;
-
-      function showMobileSlide(index) {
-
-        mobileSlides.forEach(slide => {
-          slide.classList.remove("active");
-        });
-
-        mobileDots.forEach(dot => {
-          dot.classList.remove("active");
-        });
-
-        mobileSlides[index].classList.add("active");
-        mobileDots[index].classList.add("active");
-      }
-
-      function changeMobileSlide(step) {
-
-        currentMobileSlide += step;
-
-        if (currentMobileSlide >= mobileSlides.length) {
-          currentMobileSlide = 0;
-        }
-
-        if (currentMobileSlide < 0) {
-          currentMobileSlide = mobileSlides.length - 1;
-        }
-
-        showMobileSlide(currentMobileSlide);
-      }
-
-      function goMobileSlide(index) {
-
-        currentMobileSlide = index;
-
-        showMobileSlide(currentMobileSlide);
-      }
-
-      /* ===== AUTO PLAY ===== */
-
-      setInterval(() => {
-
-        changeMobileSlide(1);
-
-      }, 5000);
-
-    </script>
 
 
     <!-- HERO -->
-    <section class="hero l-section" id="intro" style="padding-top: 0 !important;">
+    <section class="hero " id="intro" style="padding-top: 0 !important;">
       <div class="slides" id="slider">
 
         <div class="slider-decor" aria-hidden="true"></div>
 
         <div class="slide slide-1 active">
           <div class="particles" id="p0"></div>
-          <div class="random-images-container">
+
+          <div class="random-images-container l-section">
             <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
             <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
             <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
@@ -560,6 +117,7 @@
             <img src="images/Train/5.jpg" class="random-img img-pos-5" alt="تعليم مسيحي">
             <img src="images/Train/6.jpg" class="random-img img-pos-6" alt="دراسة الإنجيل">
           </div>
+
           <div class="slide-content">
             <h2>مارثون "كلمتك سراج لجسدي" .. رحلة في قلب الكتاب المقدس</h2>
             <p>انضم إلينا في رحلة روحية وتنافسية فريدة لحفظ أسفار العهدين القديم والجديد بالكامل. لنغرس كلمة الله في
@@ -570,11 +128,13 @@
 
         <div class="slide slide-2">
           <div class="particles"></div>
-          <div class="wide-overlap-section">
+
+          <div class="wide-overlap-section l-section">
             <img src="images/Train/11.jpeg" class="mega-img pos-alpha" alt="دراسة الإنجيل - حفظ الكلمة">
             <img src="images/Train/12.jpg" class="mega-img pos-beta" alt="خدمة لغة الإشارة">
             <img src="images/Train/13.jpg" class="mega-img pos-gamma" alt="مارثون الأطفال">
           </div>
+
           <div class="slide-content">
             <h2>خدمة لغة الإشارة في "حفظ الكلمة" 🤟</h2>
             <p>الوصف:
@@ -588,7 +148,7 @@
         <div class="slide slide-3">
           <div class="particles"></div>
           <!-- حاوية الصور العشوائية المتداخلة -->
-          <div class="random-images-container">
+          <div class="random-images-container l-section">
             <img src="images/Train/1.png" class="random-img img-pos-1" alt="تدريب خدام">
             <img src="images/Train/2.jpg" class="random-img img-pos-2" alt="محاضرات حفظ">
             <img src="images/Train/3.jpg" class="random-img img-pos-3" alt="ورش عمل">
@@ -640,28 +200,27 @@
           <div class="particles"></div>
 
           <!-- حاوية الصور المبعثرة (Scattered Images) بدون إطار وشفافية 70% -->
-          <div class="scattered-montage">
+          <div class="scattered-montage l-section">
             <img src="images/Train/333.jpg" class="scatter-img pos-top-left" alt="بداية حفظ سفر">
             <img src="images/Train/333.jpg" class="scatter-img pos-bottom-right" alt="تأمل في وعود الرب">
             <img src="images/Train/444.jpg" class="scatter-img pos-center-mid" alt="إتمام حفظ الكلمة">
           </div>
 
           <div class="slide-content">
-            <div class="neon-glass-card">
+
+            <div class=" animate-pop">
               <h2>عايز أبدأ أحفظ بس خايف.. دليلك للخطوة الأولى 🚀</h2>
               <p>اختار سفر من العهد القديم أو الجديد، واعمل عنه "ملخص سريع" (Highlights) يشجع الناس إنها تحفظه، وركز على
                 الوعود والتعزيات اللي فيه.</p>
 
-              <!-- دعوة للتفاعل بناءً على فيديوهاتنا الأخيرة -->
-              <div class="action-zone">
-                <p class="highlight-text">"لأنك قد عظمت كلمتك على كل اسمك"</p>
-                <div class="buttons-row">
-                  <a href="https://www.youtube.com/@keeptheword4882" class="btn-modern" target="_blank">شاهد أساليب
-                    الحفظ</a>
-                  <a href="https://www.instagram.com/keeptheword" class="btn-modern secondary" target="_blank">التحق
-                    بمارثون الحفظ</a>
-                </div>
+              <div class="join-buttons">
+                <a href="https://www.youtube.com/@keeptheword4882" class="btn-modern" target="_blank">شاهد أساليب
+                  الحفظ</a>
+                <a href="https://www.instagram.com/keeptheword" class="btn-modern secondary" target="_blank">التحق
+                  بمارثون الحفظ</a>
               </div>
+
+
             </div>
           </div>
         </div>
