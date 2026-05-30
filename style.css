@@ -1991,6 +1991,8 @@
     }
 
     .social-btn {
+      height: 70px;
+      width: 250px !important;
       display: flex;
       /* show text first, icon at the end (works well with RTL) */
       flex-direction: row-reverse;
@@ -2001,10 +2003,39 @@
       color: white;
       text-decoration: none;
       font-weight: 700;
-      transition: transform .32s cubic-bezier(.2, .9, .3, 1);
+      transition: all .32s cubic-bezier(.2, .9, .3, 1);
       font-size: 14px;
       position: relative;
       overflow: visible;
+      animation: floatingBtn 3s ease-in-out infinite, shadowBreathe 4s ease-in-out infinite;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes floatingBtn {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes shadowBreathe {
+      0%, 100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      50% {
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    @keyframes pulseGlowBtn {
+      0%, 100% {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      50% {
+        background: rgba(255, 255, 255, 0.2);
+      }
     }
 
     /* subtle background layer for glow on hover */
@@ -2039,18 +2070,40 @@
       flex-shrink: 0;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
       transition: transform .45s cubic-bezier(.2, .9, .3, 1), box-shadow .45s, filter .35s;
+      animation: spinIcon 8s linear infinite;
+    }
+
+    @keyframes spinIcon {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      25% {
+        transform: rotate(8deg) scale(1.05);
+      }
+      50% {
+        transform: rotate(0deg) scale(1);
+      }
+      75% {
+        transform: rotate(-8deg) scale(1.05);
+      }
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
     }
 
     /* a nicely pronounced hover animation */
     .social-btn:hover {
-      transform: translateY(-6px) scale(1.02);
+      transform: translateY(-18px) scale(1.08);
       z-index: 6;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
+      animation: none;
     }
 
     .social-btn:hover i {
-      transform: translateY(-6px) scale(1.12);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
+      transform: translateY(-8px) scale(1.15) rotate(12deg);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.18));
+      animation: none;
     }
 
     /* small radial pulse from the icon on hover */
@@ -2107,8 +2160,7 @@
 
     /* Hover Animation */
     .social-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
     }
 
     /* Donate Button */
@@ -2218,16 +2270,51 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+      animation: pulseDonatBtn 3s ease-in-out infinite;
     }
 
-    .donate-btn i {
-      margin-right: 6px;
+    @keyframes pulseDonatBtn {
+      0%, 100% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 12px 35px rgba(40, 167, 69, 0.5);
+        transform: scale(1.02);
+      }
     }
 
     .donate-btn:hover {
       background: #218838;
-      transform: scale(1.08);
+      transform: scale(1.12) !important;
+      box-shadow: 0 16px 45px rgba(40, 167, 69, 0.5) !important;
+      animation: none;
+    }
+
+    .donate-btn i {
+      animation: donateHeartBeat 1.3s ease-in-out infinite;
+    }
+
+    @keyframes donateHeartBeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      10% {
+        transform: scale(1.2);
+      }
+      20% {
+        transform: scale(1);
+      }
+      30% {
+        transform: scale(1.2);
+      }
+      40% {
+        transform: scale(1);
+      }
     }
 
     /* Animation */
@@ -2633,9 +2720,8 @@
 
     .join-buttons {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      justify-content: center; 
+      margin-top: -20px ;
       flex-wrap: wrap;
     }
 
@@ -3416,13 +3502,23 @@
       border: 2px solid #00d4ff;
     }
 
+    /* 🖥️ Desktop - Show l-section, Hide mobile-only */
+    .l-section {
+      display: block !important;
+    }
+
+    .mobile-only {
+      display: none !important;
+    }
+
     @media (max-width: 768px) {
+      /* 📱 Mobile - Hide l-section, Show mobile-only */
       .l-section {
-        display: none;
+        display: none !important;
       }
 
       .mobile-only {
-        display: block;
+        display: block !important;
       }
 
       /* 📱 تحسينات الصور على الموبايل */
