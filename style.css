@@ -641,13 +641,13 @@
     .float-photo {
       position: absolute;
       width: clamp(416px, 27.7vw, 600px);
-      border-radius: 24px;
+      border-radius: 18px;
       overflow: hidden;
       background: rgba(255,255,255,0.14);
-      padding: 8px;
-      box-shadow: 0 22px 70px rgba(0,0,0,0.28);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.24);
+      padding: 6px;
+      box-shadow: 0 16px 46px rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
       opacity: 0;
       will-change: transform, opacity, filter;
     }
@@ -657,7 +657,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      border-radius: 16px;
+      border-radius: 12px;
       background: #fff;
     }
 
@@ -838,7 +838,7 @@
     }
 
     .visual-2 .photo-a { top: 4%; left: 2%; width: clamp(396px, 26.4vw, 528px); }
-    .visual-2 .photo-b { top: 10%; right: 2%; width: clamp(352px, 23.1vw, 462px); }
+    .visual-2 .photo-b { top: 10%; right: 2%; width: clamp(422px, 27.72vw, 554px); }
     .visual-2 .photo-c { bottom: 4%; left: 10%; width: clamp(396px, 26.4vw, 528px); }
     .visual-2 .photo-d { bottom: 6%; right: 3%; width: clamp(330px, 22vw, 440px); }
 
@@ -850,7 +850,7 @@
     }
 
     .visual-3 .photo-3-side {
-      width: clamp(250px, 16vw, 320px);
+      width: clamp(300px, 19.2vw, 384px);
       z-index: 3;
       box-shadow: 0 24px 70px rgba(0,0,0,0.24);
     }
@@ -871,14 +871,15 @@
     .visual-4 .photo-b { bottom: 9%; right: 7%; width: clamp(352px, 23.1vw, 484px); }
     .visual-4 .photo-c { bottom: 8%; left: 9%; width: clamp(250px, 16.2vw, 342px); }
 
-    .visual-5 .photo-a { top: 8%; left: 4%; width: clamp(330px, 22vw, 440px); }
+    .visual-5 .photo-a { top: 8%; left: 4%; width: clamp(396px, 26.4vw, 528px); }
     .visual-5 .photo-b { top: 12%; right: 5%; width: clamp(352px, 23.1vw, 462px); }
-    .visual-5 .photo-c { bottom: 8%; left: 9%; width: clamp(330px, 22vw, 440px); }
+    .visual-5 .photo-c { bottom: 8%; left: 9%; width: clamp(396px, 26.4vw, 528px); }
     .visual-5 .photo-d { bottom: 10%; right: 7%; width: clamp(308px, 19.8vw, 396px); }
 
     .visual-6 .photo-a { top: 7%; left: 3%; width: clamp(320px, 21vw, 440px); }
     .visual-6 .photo-b { top: 12%; right: 5%; width: clamp(300px, 20vw, 420px); }
-    .visual-6 .photo-c { bottom: 8%; left: 10%; width: clamp(300px, 20vw, 420px); }
+    .visual-6 .photo-c { bottom: 8%; left: 10%; width: clamp(330px, 22vw, 462px); }
+    .visual-6 .photo-d { bottom: 8%; right: 7%; width: clamp(316.8px, 21.12vw, 443.52px); }
 
     .visual-grid {
       position: absolute;
@@ -1632,7 +1633,7 @@
 
     .section-title p {
       color: var(--gray);
-      font-size: 1rem;
+      font-size: 25px;
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.7;
