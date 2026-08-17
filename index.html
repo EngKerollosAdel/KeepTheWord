@@ -628,20 +628,23 @@
           <div class="stat-label">عدد خدام حفظ الكلمة</div>
         </div>
 
-        <div class="stat-item">
-          <span class="stat-num" id="count2">0</span>
-          <div class="stat-label">عدد ماراثونات الكتاب المقدس</div>
-        </div>
-
-        <div class="stat-item">
+         <div class="stat-item">
           <span class="stat-num" id="count3">0</span>
           <div class="stat-label">عدد مواسم حفظ الكلمة</div>
         </div>
+        
+        <div class="stat-item">
+          <span class="stat-num" id="count2">0</span>
+          <div class="stat-label">عدد حافظي الكلمة</div>
+        </div>
+
+       
 
         <div class="stat-item">
           <span class="stat-num" id="count4">0</span>
           <div class="stat-label">الشراكات مع الكنائس والهيئات</div>
         </div>
+
 
       </div>
     </div>
@@ -1260,7 +1263,7 @@
       document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger,.section-title').forEach(el => ro.observe(el));
 
       /* ── COUNTERS ── */
-      const targets = [20, 7, 6, 10];
+      const targets = [20, 560, 6, 10];
       const ids = ['count1', 'count2', 'count3', 'count4'];
       let counted = false;
 
